@@ -1,12 +1,11 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ClientComponent } from './client/client.component';
+import { Routes }             from '@angular/router';
+import { AppComponent }       from './app.component';
+import { TeamComponent }      from './public/main/contents/team/team.component';
+import { ContactUsComponent } from './public/main/contents/contact-us/contact-us.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'client', component: ClientComponent },
-
+    { path: '', component: AppComponent },
+    { path: 'team', component: TeamComponent },
+    { path: 'contact', component: ContactUsComponent },
 ];
+

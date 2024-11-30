@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+    margin: 0px; 
+    padding: 0px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+/* html, body { height: auto; } */
+.default-view {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #666;;  
+}
+.default-view-img {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://picsum.photos/g/3000/2000);
+    background-size: cover;
+    background-position: center;    
+}
