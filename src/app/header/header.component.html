@@ -1,33 +1,31 @@
-<nav class="navbar navbar-expand-lg bg-dark" aria-label="Eleventh navbar example">
+  <nav class="header navbar navbar-expand-lg" aria-label="Eleventh navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" routerLink="#">Advocacia</a>
+      <a class="navbar-brand nav-link" href="#">Advocacia</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarsExample09">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/contact">Contato</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" routerLink="/team">Advogado</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">Administrativo</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item text-black" routerLink="/">Área do Cliente</a></li>
-              <li><a class="dropdown-item text-black" routerLink="/">Área Administrativa</a></li>
-              <li><a class="dropdown-item text-black" routerLink="/">Área do Advogado</a></li>
-            </ul>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#divTeam">Advogados</a></li>
+          <li class="nav-item"><a class="nav-link" href="#divTeam">Serviços (FAQ)</a></li>
+          <li class="nav-item"><a class="nav-link" href="#divContact">Contato</a></li>
         </ul>
-        <form role="search">
-          <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-        </form>
+
+        <div class="rightItems">
+          <i id="btn-logout" class="fa-solid fa-circle btn-logout" title="Logout"></i>
+          <div class="dropdown">
+            <button class="btn nav-link me-1" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" (click)="navRequested('/client');">Área do Cliente</a>
+              <a class="dropdown-item" (click)="navRequested('/lawer');">Área do Advogado</a>
+              <a class="dropdown-item" (click)="navRequested('/admin');">Área Administrativa</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 </nav>

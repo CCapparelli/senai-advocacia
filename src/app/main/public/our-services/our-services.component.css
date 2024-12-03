@@ -1,5 +1,5 @@
 .default-view {
-  background-color: #333;
+  background-color: var(--goldenrod-W3);
 }
 .view-intro {
     width: 100%;

@@ -10,6 +10,6 @@ import { ContactUsComponent } from './public/contact-us/contact-us.component';
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
-export class MainContentComponent {
+export class MainComponent {
 
 }

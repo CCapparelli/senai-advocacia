@@ -4,16 +4,61 @@
     padding: 0px;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-/* html, body { height: auto; } */
+:root {
+    --goldenrod-W5: #ECD290;
+    --goldenrod-W4: #E9C979;
+    --goldenrod-W3: #E5C063;
+    --goldenrod-W2: #E1B74D;
+    --goldenrod-W1: #DEAE36;
+    --goldenrod-0: #DAA520;
+    --goldenrod-B1: #AE841A;
+    --goldenrod-B2: #836313;
+    --goldenrod-B3: #6D5210;
+    --goldenrod-B4: #57420D;
+    --goldenrod-B5: #41310A;
+    --goldenrod-Q1: #526631; /*Dark Olive Green*/
+    --goldenrod-Q2: #1C4D3F; /*Brunswick Green*/
+    --goldenrod-S1: #20B2DA; /*Bright Cerulean*/
+    --goldenrod-S2: #4820DA; /*Electric Ultramarine*/
+}
+::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+html, body, .footer { 
+    color: var(--goldenrod-B3);
+    background-color: var(--goldenrod-B5);
+} 
+h1 {
+    padding-bottom: 20px;
+}
+a {
+    cursor: pointer;
+}
 .default-view {
     width: 100%;
-    min-height: 100vh;
-    background-color: #666;;  
+    padding-top: 45px;
+    background-color: var(--goldenrod-W5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 94vh;
 }
 .default-view-img {
     width: 100%;
-    min-height: 100vh;
     background-image: url(https://picsum.photos/g/3000/2000);
     background-size: cover;
     background-position: center;    
+    min-height: 94vh;
+}
+.nav-link, a:visited {
+    cursor: pointer;
+    color: var(--goldenrod-W5);
+}
+.nav-link:hover {
+    color: var(--goldenrod-B2);
 }
