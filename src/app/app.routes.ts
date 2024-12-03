@@ -1,10 +1,10 @@
-import { Routes }             from '@angular/router';
-import { AppComponent }       from './app.component';
-import { TeamComponent }      from './public/main/contents/team/team.component';
-import { ContactUsComponent } from './public/main/contents/contact-us/contact-us.component';
+import { Routes }                 from '@angular/router';
+import { MainContentComponent }   from './main/main.component';
+import { TeamComponent }          from './main/public/our-team/our-team.component';
+import { ContactUsComponent }     from './main/public/contact-us/contact-us.component';
 
 export const routes: Routes = [
-    { path: '', component: AppComponent },
+    { path: '', component: MainContentComponent },
     { path: 'team', component: TeamComponent },
     { path: 'contact', component: ContactUsComponent },
 ];
