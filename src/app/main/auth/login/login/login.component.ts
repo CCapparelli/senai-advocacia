@@ -1,34 +1,42 @@
-import { Component }      from "@angular/core";
-import { Router }         from "@angular/router";
-import { of, throwError } from "rxjs";
-import { SessaoService }  from "../../sessao.service";
+import { Router }                          from "@angular/router";
+import { SessaoService }                   from '../../sessao.service';
+import { Component, OnInit }               from '@angular/core';
+import { ViewUpdater, ApiSumulator }       from '../../auth.model';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ISafeData } from "../../auth.interface";
 
-@Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrl: './login.component.css',
-  styles: [],
-  imports: [ReactiveFormsModule],
-})
+import { CommonModule } from '@angular/common';
 
-export class LoginComponent {
+@Component({selector: "app-login", imports: [ReactiveFormsModule, CommonModule], templateUrl: "./login.component.html", styleUrl: './login.component.css' })
+export class LoginComponent implements OnInit {
+  private data : ISafeData|null;
+  username = '';
+  password = '';
+  errorMessage = '';  
+  constructor(
+    private sessaoService: SessaoService,
+    private router: Router,
+    private api: ApiSumulator,
+    private view: ViewUpdater
+  ) {
+    this.data = this.sessaoService.safe.get();
+  }
+
+  ngOnInit(): void {
+    if (this.data !== null) {
+      this.logout();
+    }
+    
+  }
 
   formGroup: FormGroup = new FormGroup({
-      userName: new FormControl<string>("", {
-        nonNullable: true,
+      userName:     new FormControl<string>("", {nonNullable: true,
         validators: [Validators.required, Validators.min(2)],
       }),
-      userPassword: new FormControl<string>("", {
-        nonNullable: true,
+      userPassword: new FormControl<string>("", {nonNullable: true,
         validators: [Validators.required, Validators.min(6)],
       }),
   });
-
-  constructor(
-    private sessaoService: SessaoService,
-    private router: Router
-  ) {}
 
   login() {
     if (this.formGroup.invalid) {
@@ -36,39 +44,33 @@ export class LoginComponent {
     }
 
     const { userName, userPassword } = this.formGroup.value;
-
-    // IMPORTANTE: para facilitar o estudo, utilizamos a lógica abaixo, porém, no
-    // mundo real haveria uma chamada à uma service para acionar uma API e validar
-    // o usuário e senha.
-    
-    this.simularChamadaAPI(userName, userPassword)?.subscribe({
-      next: (resposta) => {
-        this.sessaoService.salvarSessao(resposta);
-
-        const path = localStorage.getItem('pathRequested');
-        this.router.navigate([path]);
-
-        const btn = document.getElementById('btn-logout');
-        if (btn) {
-          btn.style.display = 'block';
+    this.api.call(userName, userPassword)?.subscribe({
+      next: (response) => {
+        this.data = response;
+        this.sessaoService.save(response);
+        this.view.update(response);
+        if (response.roles.includes('admin')) {
+          this.router.navigate(["/admin"]);
+        } else if (response.roles.includes('lawer')) {
+          this.router.navigate(["/lawer"]);
+        } else if (response.roles.includes('client')) {
+          this.router.navigate(["/client"]);
+        } else {
+          this.router.navigate(['/']);
         }
       },
-      error: (erro) => {
-        alert(erro);
+      error: (error) => {
+        alert(error);
+        this.view.reset();
         this.formGroup.reset();
       },
     });
   }
 
-  simularChamadaAPI(userName: string, userPassword: string) {
-    const isValid   = (userName === "professor" && userPassword === "12345");
-
-    return isValid  ? of({accessToken: "Password", nome: "Professor"})
-                    : throwError(() => {
-                        const error: any = new Error(`Usuário ou senha inválido`);
-                        error.timestamp = Date.now();
-                        return error;
-                    });
+  logout() {
+    this.data = null;
+    this.sessaoService.clear();
+    this.view.reset();
+    this.router.navigate(['/login']);
   }
-  
 }

@@ -11,9 +11,18 @@
     gap: 10px;
     align-items: center;
 }
-.btn-logout {
+.clt-reports, .lwr-meetings, .lwr-meetings, .btn-user  {
     color: var(--goldenrod-W5);
     cursor: pointer;
-    font-size: .6rem;
     display: none;
+}
+.btn-user {
+    display: block;
+}
+#txt-userName {
+    color: var(--goldenrod-W5);
+    display:none;
+}
+.btn-user:hover {
+    color: var(--goldenrod-B2);
 }
