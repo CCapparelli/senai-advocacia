@@ -1,0 +1,30 @@
+.sidebar {
+  background: #4c4f56;
+  color: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  border-bottom: 1px solid #5f6268;
+}
+
+.sidebar ul li {
+  background: #5f6268;
+}
+
+.sidebar ul li:hover {
+  background: #73767e;
+}
+
+.main-content {
+  background: #ffffff;
+}
+
+button {
+  background: #4c4f56;
+  color: white;
+}
+
+button:hover {
+  background: #5f6268;
+}

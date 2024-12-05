@@ -1,0 +1,27 @@
+<div class="form-container default-view session">
+  <form action="" class="log-in" autocomplete="off" form (ngSubmit)="login()"[formGroup]="formGroup">
+    <h4 class="title">Login</h4>
+
+    <div class="form-line">
+      <i class="fa-solid fa-envelope form-icon"></i>
+      <div class="floating-label">
+        <input type="text" class="form-control" formControlName="userName" id="userName" placeholder="Digite seu nome">
+        <label for="email">Usuário</label>
+      </div>
+    </div>
+
+    <div class="form-line">
+      <i class="fa-solid fa-lock form-icon"></i>
+      <div class="floating-label">
+        <input type="password" class="form-control" formControlName="userPassword" id="userPassword" placeholder="Digite sua senha">
+        <label for="password">Senha</label>
+      </div>
+    </div>
+   
+    <button type="submit" class="button">Login</button>
+    <a routerLink="/signup" class="discrete">Registre-se</a>
+    <!-- <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p> -->
+  </form>
+</div>
+
+

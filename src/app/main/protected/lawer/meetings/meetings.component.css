@@ -1,0 +1,26 @@
+.sidebar {
+  background: var(--royal-B3);
+  color: var(--royal-W3);
+}
+
+.sidebar ul li {
+  background: var(--royal-B1);
+}
+
+.sidebar ul li:hover {
+  background: var(--royal-0);
+}
+
+.main-content {
+  background: var(--royal-B4);
+  color: var(--royal-W3);
+}
+
+button {
+  background: var(--royal-B3);
+  color: var(--royal-W3);
+}
+
+button:hover {
+  background: var(--royal-B1);
+}

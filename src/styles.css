@@ -5,6 +5,8 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 :root {
+  /* https://www.colorxs.com/palette/color/royal-blue */
+  
     --goldenrod-W5: #ECD290;
     --goldenrod-W4: #E9C979;
     --goldenrod-W3: #E5C063;
@@ -20,6 +22,38 @@
     --goldenrod-Q2: #1C4D3F; /*Brunswick Green*/
     --goldenrod-S1: #20B2DA; /*Bright Cerulean*/
     --goldenrod-S2: #4820DA; /*Electric Ultramarine*/
+
+    --teal-W5: #CCE6E6; /**/
+    --teal-W4: #B2D9D9; /**/
+    --teal-W3: #80C0C0; /**/
+    --teal-W2: #66B3B3; /**/
+    --teal-W1: #339999; /**/
+    --teal-0: #008080; /*Teal*/
+    --teal-B1: #006666; /**/
+    --teal-B2: #004D4D3; /**/
+    --teal-B3: #004040; /**/
+    --teal-B4: #002626; /**/
+    --teal-B5: #001A1A; /**/
+    --teal-Q1: #526631; /*TODO...*/
+    --teal-Q2: #1C4D3F; /**/
+    --teal-S1: #20B2DA; /**/
+    --teal-S2: #4820DA; /**/
+
+    --royal-W5: #C6D2F6; /**/
+    --royal-W4: #A0B4F0; /**/
+    --royal-W3: #8DA5ED; /**/
+    --royal-W2: #6787E7; /**/
+    --royal-W1: #5478E4; /**/
+    --royal-0: #4169E1; /*Royal Blue*/
+    --royal-B1: #3454B4; /**/
+    --royal-B2: #273F87; /**/
+    --royal-B3: #203470; /**/
+    --royal-B4: #131F43; /**/
+    --royal-B5: #0D152D; /**/
+    --royal-Q1: #526631; /*TODO...*/
+    --royal-Q2: #1C4D3F; /**/
+    --royal-S1: #20B2DA; /**/
+    --royal-S2: #4820DA; /**/
 }
 ::-webkit-scrollbar {
     width: 0px;
@@ -38,6 +72,9 @@ h1 {
 a {
     cursor: pointer;
 }
+
+/* default (outer) */
+
 .default-view {
     width: 100%;
     padding-top: 45px;
@@ -50,6 +87,7 @@ a {
 }
 .default-view-img {
     width: 100%;
+    padding-top: 45px;
     background-image: url(https://picsum.photos/g/3000/2000);
     background-size: cover;
     background-position: center;    
@@ -62,3 +100,77 @@ a {
 .nav-link:hover {
     color: var(--goldenrod-B2);
 }
+
+/* inner */
+  
+.inner-view {
+    display: flex;
+    height: 100vh; /* Garante que a altura ocupa 100% */
+    width: 100vw; /* Garante que a largura ocupa 100% */
+    padding-top: 45px;
+  }
+  
+  .sidebar {
+    width: 250px; /* Largura fixa da barra lateral */
+    background: #4c4f56;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #5f6268;
+    padding-bottom: 10px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+    padding: 10px;
+    background: #5f6268;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar ul li:hover {
+    background: #73767e;
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Faz com que o conteúdo principal ocupe o restante da largura */
+    padding: 40px;
+    background: #ffffff;
+    overflow-y: auto; /* Permite rolagem caso o conteúdo exceda a altura */
+  }
+  
+  .main-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .main-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background: #4c4f56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
