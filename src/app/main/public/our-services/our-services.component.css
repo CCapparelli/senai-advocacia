@@ -1,7 +1,16 @@
-.default-view {
+/* .default-view {
   background-color: var(--goldenrod-W3);
+} */
+.default-view-img {
+  background-image: url(./../../../../../public/assets/img/banner/img2.png);
+  /* min-height: 80vh; */
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
 }
-.view-intro {
+/* .view-intro {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -16,5 +25,80 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-  }
+  } */
   
+
+  /*  */
+  .services-section {
+    background-color: #EBC975;
+    background-image: url("/assets/img/adv/img2.png"), linear-gradient(to bottom, #fff, #ccc);
+    background-position: top, center;
+    background-size: cover, auto;
+    background-repeat: no-repeat, repeat-x;
+    background-attachment: fixed, scroll;
+    min-height: 80vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+.section-borders {
+  width: 50%;
+  padding: 20px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50px;
+  right: 160px;
+  height: 90%;
+  background-color: var(--gray-B3);
+  opacity: .5;
+  z-index: 0;
+}
+.faq, .top {
+    z-index: 1;
+}
+.intro {
+    text-align: left;
+    padding-bottom:20px;
+}
+.intro p {
+    padding-top: 10px;
+}
+.question {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: left;
+}
+.answer {
+    padding: 10px 30px;
+    padding-top: 5px;
+    text-align: justify;
+    transition: display 2s;
+}
+.faq-question {
+    padding: 0 0 0 20px;
+    cursor: pointer;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+    background-color: #AE8319; 
+    border-radius: 10px;
+}
+.faq, .faq-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.faq-answer {
+    padding: 0 0 10px 0px;
+    display: none;
+    overflow: hidden;
+    background-color: #AE8319; 
+    border-radius: 10px;
+    transition: display 2s;
+}
+.active, .faq-question:hover {
+    background-color: #F1DBA2; 
+}

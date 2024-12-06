@@ -1,4 +1,6 @@
-
+.default-view-img {
+  background-image: url(./../../../../../public/assets/img/banner/img1.png);
+}
 
 .view-intro {
     width: 100%;
@@ -126,3 +128,52 @@
     color: lime;
   }
   
+  /**/
+  /* about-us.component.css */
+.about-section {
+  background-color: #F1DBA2;
+  background-image: url("/assets/img/adv/img3.png"), linear-gradient(to bottom, #fff, #ccc);
+  background-position: top, center;
+  background-size: cover, auto;
+  background-repeat: no-repeat, repeat-x;
+  background-attachment: fixed, scroll;
+  min-height: 100vh;
+}
+.galeryImages {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.galeryImage, .galeryImage img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  background-color: #F1DBA2;
+  transition: 3s;
+}
+.galeryEffect {
+  margin: 0;
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+.galeryEffect:hover .galeryText{
+  cursor: pointer;
+  display: block;
+  font-size: .9em;
+  line-height: 1.3em;
+  background: #111;
+  filter:alpha(opacity=70);
+  opacity:.70;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; /*--IE 8 Transparency--*/
+  color: #F1DBA2;
+  position: absolute;
+  padding: 10px 0px;
+  bottom: 0px;
+  left: 0px;
+  width: 200px;
+  border-top: 1px solid #AE8319;
+}

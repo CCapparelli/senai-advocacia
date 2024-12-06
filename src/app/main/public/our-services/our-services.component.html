@@ -1,10 +1,22 @@
-<div id="divServices" class="default-view-img">
-    <div class="view-intro mb-3">
-        <h1 class="mt-3">Nossos serviços</h1>
-        <p class="mx-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus perferendis non recusandae dolorem quam, iure corporis delectus vero id aliquam ab odit esse optio alias cupiditate, odio nostrum est dolores.</p>
-    </div>
-    <div class="faq-items">
-        <p class="mx-5 text-center">TODO: FAQ</p>
-    </div>
-</div>
+<!-- https://furlanetoadv.com.br/perguntas-frequentes/ -->
+ 
+<section id="divServices" class="section default-view-img">
+    
+        <div class="top">
+            <h2>Nossos serviços</h2>  
+            <p class="intro">É nosso dever e objetivo contribuir para a divulgação do conhecimento e a valorização da cidadania. Para resolução de dúvidas específicas de casos concretos, consulte um de nossos advogados. Confira abixo algumas questões frequentes, de caráter geral.  
+            </p>
+        </div>
+        <div class="faq">
+            <div class="faq-item" *ngFor="let faq of faqs; let i = index">
+                <div class="faq-question" id="question{{i}}" (click)="toggleResposta(i)">
+                    <p class="question">{{ faq.question }}</p>
+                </div> 
+                <div class="faq-answer" id="answer{{i}}">
+                    <p class="answer">{{ faq.answer }}</p>
+                </div> 
+            </div>
+        </div>
+        <div class="section-borders"></div>
 
+</section>

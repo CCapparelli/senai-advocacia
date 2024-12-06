@@ -1,0 +1,15 @@
+.default-view {
+    background-color: var(--goldenrod-W3);
+  }
+  /* .default-view-img {
+    background-image: url(./../../../../../public/assets/img/banner/img2.png);
+  } */
+  .view-intro {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    

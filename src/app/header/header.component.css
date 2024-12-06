@@ -1,28 +1,57 @@
-.header { 
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: 1001; 
-    background-color: var(--goldenrod-B5);
-}
-.rightItems {
+
+  .logo a {
     display: flex;
-    gap: 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+  }
+
+  .logo img {
+      max-height: 32px;
+  }
+  .nav-links a {
+      color: #F1DBA2;
+      text-decoration: none;
+      transition: color 0.3s;
+  }
+  .nav-links a:hover {
+      color: goldenrod;
+  }
+
+
+.header, .left, .right {
+    display: flex;
+    gap: 20px;
+}
+.header {
+    width: 100%;
+    padding: 10px;
+    justify-content: space-between;
+}
+.left {
+    justify-content: center;
     align-items: center;
 }
-.clt-reports, .lwr-meetings, .lwr-meetings, .btn-user  {
-    color: var(--goldenrod-W5);
-    cursor: pointer;
+.left-brand {
+    gap: 10px;
+}
+.brandName {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+.right {
+    justify-content: end;
+    align-items: center;
+}
+.logoImg {
+    width: 35px;
+}
+
+.hidden {
     display: none;
 }
-.btn-user {
-    display: block;
-}
-#txt-userName {
-    color: var(--goldenrod-W5);
-    display:none;
-}
-.btn-user:hover {
-    color: var(--goldenrod-B2);
+.small {
+    font-size: small;
 }
