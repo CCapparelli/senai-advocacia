@@ -1,63 +1,21 @@
-/* .default-view {
-  background-color: var(--goldenrod-W3);
-} */
 .default-view-img {
   background-image: url(./../../../../../public/assets/img/banner/img2.png);
-  /* min-height: 80vh; */
-    
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: end;
+  color: var(--goldenrod-W5);
 }
-/* .view-intro {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
- 
-  .faq-items {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  } */
-  
 
-  /*  */
-  .services-section {
-    background-color: #EBC975;
-    background-image: url("/assets/img/adv/img2.png"), linear-gradient(to bottom, #fff, #ccc);
-    background-position: top, center;
-    background-size: cover, auto;
-    background-repeat: no-repeat, repeat-x;
-    background-attachment: fixed, scroll;
-    min-height: 80vh;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: end;
-}
+
 .section-borders {
   width: 50%;
   padding: 20px;
   border-radius: 20px;
-  position: absolute;
-  top: 50px;
-  right: 160px;
-  height: 90%;
-  background-color: var(--gray-B3);
-  opacity: .5;
-  z-index: 0;
+  background-color: rgba(38, 38, 38, 0.850);
 }
-.faq, .top {
-    z-index: 1;
-}
+
 .intro {
     text-align: left;
     padding-bottom:20px;
@@ -66,13 +24,13 @@
     padding-top: 10px;
 }
 .question {
-    font-size: 1.2em;
-    font-weight: bold;
+    padding: 0px 14px;
+    padding-top: 12px;
     text-align: left;
 }
 .answer {
-    padding: 10px 30px;
-    padding-top: 5px;
+    padding: 0px 30px;
+    padding-top: 8px;
     text-align: justify;
     transition: display 2s;
 }
@@ -83,7 +41,7 @@
     text-align: left;
     outline: none;
     transition: 0.4s;
-    background-color: #AE8319; 
+    background-color: var(--goldenrod-B3);
     border-radius: 10px;
 }
 .faq, .faq-item {
@@ -92,13 +50,15 @@
     gap: 10px;
 }
 .faq-answer {
-    padding: 0 0 10px 0px;
+    padding: 0px;
+    margin: 0px; 
     display: none;
     overflow: hidden;
-    background-color: #AE8319; 
+    color: var(--goldenrod-B5);
+    background-color: var(--goldenrod-0); 
     border-radius: 10px;
     transition: display 2s;
 }
 .active, .faq-question:hover {
-    background-color: #F1DBA2; 
+    background-color: var(--goldenrod-B1);
 }

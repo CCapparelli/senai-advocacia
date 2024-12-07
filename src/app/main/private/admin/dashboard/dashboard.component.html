@@ -1,24 +1,22 @@
 <div class="inner-view">
-
-    <aside class="sidebar">
-  
-      <h2>Admin</h2>
-      
-      <ul>
-        <li>Kanban</li>
-        <li>Lista de Cliente</li>
-        <li>Lista de Estoque</li>
-        <li>Financeiro</li>
-        <li>Processos</li>
-      </ul>
-  
-    </aside>
-  
-    <main class="main-content">
-      <h2>Dashboard</h2>
-  
-      <button onclick="logout()">Logout</button>
-    </main>
-  
+  <aside id="sideBar"  class="sidebar">
+    <div class="side-top">
+      <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do administrador"></i>
+      <p class="title m-0 p-0">Admin</p>
+    </div>
+    <ul class="menu-list">
+      <li class="menu-item active">Dashboard</li>
+      <li class="menu-item">Database</li>
+      <li class="menu-item" routerLink="/firebase">Firebase</li>
+      <li class="menu-item">Chamadas</li>
+      <li class="menu-item" routerLink="/next">Próximos passos</li>
+    </ul>
+  </aside>
+  <div class="main-content">
+    <p class="title m-0 p-0">Dashboard</p>
+    <p>Em breve...</p>
+    <h5>Enquanto isso, confira:</h5>
+    <li><a routerLink="/firebase">Acessando o Firebase</a></li>
+    <li><a routerLink="/next">Próximos passos</a></li>
   </div>
-  
+</div>

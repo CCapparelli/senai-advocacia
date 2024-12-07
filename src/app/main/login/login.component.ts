@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    this.dataServices.endSession();
     this.view.reset();
+    this.dataServices.endSession();
     this.router.navigate(['/login']);
   }
 }

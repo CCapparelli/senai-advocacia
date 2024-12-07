@@ -1,6 +1,6 @@
 .carousel-item {
     width: 100%; /* Faz a imagem ocupar 100% da largura do carrossel */
-    height: 90vh; /* Ajuste a altura do carrossel */
+    height: 100vh; /* Ajuste a altura do carrossel */
     object-fit: cover; /* Mantém a imagem sem distorção */
 }
 

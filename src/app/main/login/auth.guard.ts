@@ -14,14 +14,6 @@ export class AuthGuard implements CanActivate {
     const requested = route.routeConfig?.path;
     const ispublic = requested && publicNav.includes(requested);
 
-
-    // const isSignup = route.routeConfig?.path === 'signup';
-    // if (isLogged || isSignup) {
-    //   return true;
-    // }
-    // this.router.navigate(["/login"]);
-    // return false;
-
     if (!isLogged && !ispublic) {
       this.router.navigate(["/login"]);
       return false;

@@ -1,5 +1,17 @@
 .default-view-img {
   background-image: url(./../../../../../public/assets/img/banner/img1.png);
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  color: var(--goldenrod-W5);
+}
+
+.section-borders {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(38, 38, 38, 0.850);
 }
 
 .view-intro {
@@ -83,6 +95,7 @@
     transform: scale(0.7);
   }
   .team-member .name {
+    color:black;
     margin-bottom: 0px;
    }
   .team-member .title {

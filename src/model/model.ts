@@ -108,12 +108,14 @@ export class ViewUpdater {
   private dash : HTMLElement|null;
   private rprt : HTMLElement|null;
   private mtns : HTMLElement|null;
+  private btnLogin : HTMLElement|null;
 
   constructor(private router: Router) {
     this.text = document.getElementById('txt-userName');
     this.dash = document.getElementById('link-dash');
     this.rprt = document.getElementById('link-reports');
     this.mtns = document.getElementById('link-meetings');
+    this.btnLogin = document.getElementById('btn-login');
   }
  
 
@@ -131,21 +133,77 @@ export class ViewUpdater {
     if (this.mtns) {
       this.mtns.style.display = 'none';
     }
+    if (this.btnLogin) {
+      this.btnLogin.innerText = 'Login';
+    }
   }
 
   update(data: IUserData) {
+    this.reset();
+    let currentRole = '';
+    if (this.btnLogin) {
+      this.btnLogin.innerText = 'Logout';
+    }
     if (this.text) {
       this.text.innerText = data.name;
       this.text.style.display = 'block';
     }
     if (this.dash && data.paths.includes('dashboard')) {
       this.dash.style.display = 'block';
-    }
-    if (this.rprt && data.paths.includes('reports')) {
-      this.rprt.style.display = 'block';
-    }
+      currentRole = 'admin';
+    } else 
     if (this.mtns && data.paths.includes('meetings')) {
       this.mtns.style.display = 'block';
+      currentRole = 'lawer';
+    } else
+    if (this.rprt && data.paths.includes('reports')) {
+      this.rprt.style.display = 'block';
+      currentRole = 'client';
+    }
+    this.assignToFooter(currentRole);
+    this.assignToHeader(currentRole);
+  }
+
+  updateFor(role: string) {
+    if (role === 'admin') {
+
+    } else if (role === 'client') {
+
+    } else if (role === 'lawer') {
+
+    } else {
+
+    }
+  }
+  assignToFooter(role:string) {
+    let items = Array.from(document.getElementsByClassName('footer'));
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i] as HTMLElement;
+      if (role === 'admin') {
+        item.style.backgroundColor = '#262626';  /* retirar esses hardcore aê*/
+      } else if (role === 'client') {
+        item.style.backgroundColor = '#004040';
+      } else if (role === 'lawer') {
+        item.style.backgroundColor = '#203470';
+      } else {
+        item.style.backgroundColor = '#41310A';
+      }
+    }
+  }
+
+  assignToHeader(role:string) {
+    let items = Array.from(document.getElementsByClassName('header'));
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i] as HTMLElement;
+      if (role === 'admin') {
+        item.style.backgroundColor = '#262626';  /* retirar esses hardcore aê*/
+      } else if (role === 'client') {
+        item.style.backgroundColor = '#004040';
+      } else if (role === 'lawer') {
+        item.style.backgroundColor = '#203470';
+      } else {
+        item.style.backgroundColor = '#41310A';
+      }
     }
   }
 }

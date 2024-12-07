@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataServices } from '../../../../../services/session.services';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'client-reports',
-  templateUrl: './reports.component.html',
-  styleUrl: './reports.component.css'
+  selector: 'app-next',
+  imports: [RouterLink],
+  templateUrl: './next.component.html',
+  styleUrl: './next.component.css'
 })
-
-export class ReportsComponent {
-  constructor(private dataService: DataServices, private router: Router) {}
-
+export class NextComponent {
   expanded: boolean = false;
   toogleMenu() {
     this.expanded = !this.expanded;
@@ -18,7 +15,7 @@ export class ReportsComponent {
     const bar = document.getElementById('sideBar');
     if (btn && bar) {
       if (this.expanded) {
-        bar.style.width = '320px';
+        bar.style.width = '300px';
         btn.className = 'menu-x fa-solid fa-x';
       } else {
         bar.style.width = '45px';
@@ -28,4 +25,3 @@ export class ReportsComponent {
     }
   }
 }
-

@@ -8,6 +8,8 @@ import { SignupComponent }        from './main/login/signup/signup.component';
 import { AuthGuard }              from './main/login/auth.guard';
 import { AdminComponent }         from './main/private/admin/admin.component';
 import { DashboardComponent }     from './main/private/admin/dashboard/dashboard.component';
+import { FirebaseComponent }      from './main/private/admin/firebase/firebase.component';
+import { NextComponent }          from './main/private/admin/next/next.component';
 import { ClientComponent }        from './main/protected/client/client.component';
 import { ReportsComponent }       from './main/protected/client/reports/reports.component';
 import { LawerComponent }         from './main/protected/lawer/lawer.component';
@@ -19,12 +21,14 @@ export const routes: Routes = [
     { path: 'login',     component: LoginComponent },
     { path: 'signup',    component: SignupComponent },
     { path: 'policies',  component: OurPoliciesComponent },
-    { path: 'team',      component: TeamComponent,       canActivate: [AuthGuard] },
-    { path: 'client',    component: ReportsComponent,    canActivate: [AuthGuard] },
+    { path: 'team',      component: TeamComponent },
+    { path: 'client',    component: ReportsComponent,    canActivate: [AuthGuard] }, /*ClientComponent*/
     { path: 'reports',   component: ReportsComponent,    canActivate: [AuthGuard] },
-    { path: 'lawer',     component: MeetingsComponent,   canActivate: [AuthGuard] },
+    { path: 'lawer',     component: MeetingsComponent,   canActivate: [AuthGuard] }, /*LawerComponent*/
     { path: 'meetings',  component: MeetingsComponent,   canActivate: [AuthGuard] },
-    { path: 'admin',     component: DashboardComponent,  canActivate: [AuthGuard] },
+    { path: 'admin',     component: DashboardComponent,  canActivate: [AuthGuard] }, /*AdminComponent*/
     { path: 'dashboard', component: DashboardComponent,  canActivate: [AuthGuard] },
+    { path: 'firebase',  component: FirebaseComponent,   canActivate: [AuthGuard] },
+    { path: 'next',      component: NextComponent,   canActivate: [AuthGuard] },
 ];
 

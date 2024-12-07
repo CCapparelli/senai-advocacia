@@ -1,47 +1,24 @@
-<!-- <img src="assets/img/logo/logo.webp" alt="">
-<nav class="header navbar navbar-expand-lg">
-    <div class="container-fluid">
-      
-
-      <div class="leftItems">
-        <a class="navbar-brand nav-link" href="#">Advogados Associados</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-                <div class="collapse navbar-collapse" id="navbarsExample09">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#divTeam">Advogados</a></li>
-            <li class="nav-item"><a class="nav-link" href="#divServices">Serviços (FAQ)</a></li>
-            <li class="nav-item"><a class="nav-link" href="#divContact">Contato</a></li>
-          </ul> 
-        </div>
-        <div class="rightItems">
-          <span id="txt-userName">User name</span>
-          <a class="nav-link" routerLink="/login">Login</a>
-        </div>
-      </div>
-    </div>
-</nav> -->
-
-<!-- header.component.html -->
 <header class="header container-fluid">
-  <div class="left nav-links">
+  <!-- <div class="left nav-links"> -->
     <div class="left-brand">
       <img class="logoImg" src="assets/img/logo/logo.webp" alt="Logo da Advocacia" />
       <a class="brandName" href="#">Advogados Associados</a>
     </div>
-    
+    <div class="publicLinks">
+      <a href="#">Home</a>
       <a href="#divTeam">Advogados</a>
       <a href="#divServices">Serviços</a>
       <a href="#divContact">Contato</a>
+    </div>
+    <div class="protectedLinks">
       <a id="link-dash" class="nav-link hidden" routerLink="/dashboard">Dashboard</a>
-      <a id="link-reports" class="nav-link hidden" routerLink="/reports">Reports</a>
-      <a id="link-meetings" class="nav-link hidden" routerLink="/meetings">Meetings</a>
-  </div>
+      <a id="link-reports" class="nav-link hidden" routerLink="/reports">Relatórios</a>
+      <a id="link-meetings" class="nav-link hidden" routerLink="/meetings">Reuniões</a>
+    </div>
+  <!-- </div> -->
   <div class="right">
     <span id="txt-userName" class="hidden">User name</span>
-    <a class="nav-link small" routerLink="/login">Login</a>
+    <a id="btn-login" class="nav-link small" routerLink="/login">Login</a>
   </div>
 
 </header>

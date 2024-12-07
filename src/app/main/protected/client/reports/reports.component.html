@@ -1,23 +1,17 @@
 <div class="inner-view">
-
-    <aside class="sidebar">
-  
-      <h2>Cliente</h2>
-      
-      <ul>
-        <li>Relatórios</li>
-        <li>Processos</li>
-        <li>Arquivos</li>
-      </ul>
-  
-    </aside>
-  
-    <main class="main-content">
-      <h2>Relatórios</h2>
-  
-      <button onclick="logout()">Logout</button>
-    </main>
-  
+  <aside id="sideBar"  class="sidebar">
+    <div class="side-top">
+      <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do cliente"></i>
+      <p class="title m-0 p-0">Cliente</p>
+    </div>
+    <ul class="menu-list">
+      <li class="menu-item active">Relatórios</li>
+      <li class="menu-item">Calendário</li>
+      <li class="menu-item">Pendências</li>
+    </ul>
+  </aside>
+  <div class="main-content">
+    <p class="title m-0 p-0">Relatórios</p>
+    <p>Em breve...</p>
   </div>
-  
-
+</div>

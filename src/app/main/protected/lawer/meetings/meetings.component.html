@@ -1,23 +1,18 @@
 <div class="inner-view">
-
-    <aside class="sidebar">
-  
-      <h2>Advogados</h2>
-      
-      <ul>
-        <li>Calendário</li>
-        <li>Solicitar reunião</li>
-        <li>Clientes</li>
+    <aside id="sideBar"  class="sidebar">
+      <div class="side-top">
+        <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do advogado"></i>
+        <p class="title m-0 p-0">Advogados</p>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item active">Reuniões</li>
+        <li class="menu-item">Clientes</li>
+        <li class="menu-item">Calendário</li>
       </ul>
-  
     </aside>
-  
-    <main class="main-content">
-      <h2>Reuniões</h2>
-  
-      <button onclick="logout()">Logout</button>
-    </main>
-  
+    <div class="main-content">
+      <p class="title m-0 p-0">Reuniões</p>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita inventore error voluptatibus placeat beatae aliquid excepturi et accusantium reprehenderit quis laudantium obcaecati soluta, consequuntur nostrum odio eligendi quam eum eveniet.</p>
+    </div>
   </div>
-  
 

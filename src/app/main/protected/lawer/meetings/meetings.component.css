@@ -2,25 +2,22 @@
   background: var(--royal-B3);
   color: var(--royal-W3);
 }
-
-.sidebar ul li {
-  background: var(--royal-B1);
+.title {
+  border-bottom: 1px solid var(--royal-W3);
 }
-
-.sidebar ul li:hover {
-  background: var(--royal-0);
-}
-
 .main-content {
-  background: var(--royal-B4);
+  background: var(--royal-B5);
   color: var(--royal-W3);
 }
 
-button {
+.menu-item {
   background: var(--royal-B3);
   color: var(--royal-W3);
 }
-
-button:hover {
-  background: var(--royal-B1);
+.menu-item:hover {
+  background-color: var(--royal-B4);
+}
+.active {
+  background: var(--royal-B3);
+  color: var(--royal-W5);
 }

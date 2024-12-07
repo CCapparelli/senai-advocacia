@@ -1,16 +1,25 @@
+.header {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    z-index:3;
+    position:fixed;
+    top:0;
+    width:100%;
+    background:var(--goldenrod-B5);
+    border-bottom:3px solid #000;
+  }
 
   .logo a {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 2px;
-    text-decoration: none;
   }
 
   .logo img {
       max-height: 32px;
   }
-  .nav-links a {
+  .nav-links a, .right a {
       color: #F1DBA2;
       text-decoration: none;
       transition: color 0.3s;
@@ -20,17 +29,24 @@
   }
 
 
-.header, .left, .right {
+  .header, .left, .right, .publicLinks, .protectedLinks {
     display: flex;
     gap: 20px;
+}
+.header a, .left a, .right a, .publicLinks a, .protectedLinks a {
+    text-decoration: none;
+}
+.header a:hover, .left a:hover, .right a:hover, .publicLinks a:hover, .protectedLinks a:hover {
+    border-bottom: 2px solid var(--goldenrod-0);
 }
 .header {
     width: 100%;
     padding: 10px;
     justify-content: space-between;
 }
-.left {
-    justify-content: center;
+.left, .publicLinks, .protectedLinks {
+    /* width: 100%; */
+    justify-content: space-around;
     align-items: center;
 }
 .left-brand {
@@ -54,4 +70,8 @@
 }
 .small {
     font-size: small;
+}
+#txt-userName {
+    color: #F1DBA2;
+    cursor: pointer;
 }
