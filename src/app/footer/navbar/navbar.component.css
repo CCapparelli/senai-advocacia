@@ -1,0 +1,34 @@
+
+.f-section {
+    display: flex;
+    flex-direction: column;
+}
+.f-section a {
+    color: var(--goldenrod-W5);
+    text-decoration: none;
+}
+.f-section .ready:hover {
+    text-decoration: underline;
+}
+.f-section a:hover {
+    color: var(--goldenrod-0);
+}
+.nav-link:hover {
+    border-bottom: 2px solid var(--goldenrod-0);
+}
+.f-title {
+    font-size: 1.1em;
+    color: var(--goldenrod-0);
+    margin-bottom: 3px;
+}
+.f-columns {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--goldenrod-0);
+}
+.f-section .titleless {
+    height: 100%;
+}
+.f-section .map {
+    align-self: end;
+}

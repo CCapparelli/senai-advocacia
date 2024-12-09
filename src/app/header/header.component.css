@@ -1,7 +1,7 @@
 .header {
     box-sizing:border-box;
     -moz-box-sizing:border-box;
-    z-index:3;
+    z-index:999;
     position:fixed;
     top:0;
     width:100%;
@@ -74,4 +74,16 @@
 #txt-userName {
     color: #F1DBA2;
     cursor: pointer;
+}
+.country {
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: width, height .3s linear;
+}
+.country:hover {
+    width: 32px;
+    height: 32px;
 }

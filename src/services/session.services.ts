@@ -117,21 +117,26 @@ class SessionSafeServices {
 
 @Injectable({providedIn: "root"})
 export class DataServices {
+  public currentUser : IUserData | null;
+
   constructor(private safe: SessionSafeServices, 
               private unsafe: SessionServices,
               private mocData: MocData) 
               {
                 this.restoreSession();
+                this.currentUser = null;
               }
 
   hasData = () : boolean => (!this.unsafe.isEmpty() && !this.safe.isLogged());
-
+  hasUser = () : boolean => this.currentUser !== null;
+  
   restoreSession() {
     this.unsafe.restoreUserData();
     this.safe.restore();
   }
   
   endSession() {
+    this.currentUser = null;
     this.unsafe.clearUserData();
     this.safe.clear();
   }
@@ -143,6 +148,9 @@ export class DataServices {
 
   findUser(userName: string, password: string) : IUserData|null {
     var result = this.mocData.for(userName, password);
+    if(result) {
+      this.currentUser = result;
+    }
     return result;
   }
 
@@ -152,6 +160,7 @@ export class DataServices {
       this.mocData.add(userData);
     }
     this.unsafe.saveUserData(userData);
+    this.currentUser = user;
   }
 
   register(userName: string, password: string) {

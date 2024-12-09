@@ -119,28 +119,29 @@ export class ViewUpdater {
   }
  
 
-  reset() {
+  reset(data: IUserData|null) {
     if (this.text) {
       this.text.innerText = '';
       this.text.style.display = 'none';
     }
-    if (this.dash) {
-      this.dash.style.display = 'none';
-    }
-    if (this.rprt) {
-      this.rprt.style.display = 'none';
-    }
-    if (this.mtns) {
-      this.mtns.style.display = 'none';
-    }
     if (this.btnLogin) {
       this.btnLogin.innerText = 'Login';
     }
+    if (this.dash) {
+      this.dash.style.display = 'none';
+    }    
+    if (this.rprt) {
+      this.rprt.style.display = 'none';
+    }  
+    if (this.mtns) {
+      this.mtns.style.display = 'none';
+    }  
+    this.assignToFooter(data);
+    this.assignToHeader(data);
   }
 
   update(data: IUserData) {
-    this.reset();
-    let currentRole = '';
+    this.reset(data);
     if (this.btnLogin) {
       this.btnLogin.innerText = 'Logout';
     }
@@ -148,59 +149,59 @@ export class ViewUpdater {
       this.text.innerText = data.name;
       this.text.style.display = 'block';
     }
-    if (this.dash && data.paths.includes('dashboard')) {
-      this.dash.style.display = 'block';
-      currentRole = 'admin';
-    } else 
-    if (this.mtns && data.paths.includes('meetings')) {
-      this.mtns.style.display = 'block';
-      currentRole = 'lawer';
-    } else
-    if (this.rprt && data.paths.includes('reports')) {
-      this.rprt.style.display = 'block';
-      currentRole = 'client';
-    }
-    this.assignToFooter(currentRole);
-    this.assignToHeader(currentRole);
+    this.assignToFooter(data);
+    this.assignToHeader(data);
   }
 
-  updateFor(role: string) {
-    if (role === 'admin') {
-
-    } else if (role === 'client') {
-
-    } else if (role === 'lawer') {
-
-    } else {
-
-    }
-  }
-  assignToFooter(role:string) {
+  assignToFooter(data: IUserData|null) {
     let items = Array.from(document.getElementsByClassName('footer'));
     for (let i = 0; i < items.length; i++) {
       const item = items[i] as HTMLElement;
-      if (role === 'admin') {
+      
+      if (data && data.roles.includes('admin')) {
         item.style.backgroundColor = '#262626';  /* retirar esses hardcore aê*/
-      } else if (role === 'client') {
+        if (this.dash) {
+          this.dash.style.display = 'block';
+        }    
+        if (this.rprt) {
+          this.rprt.style.display = 'block';
+        }  
+        if (this.mtns) {
+          this.mtns.style.display = 'block';
+        } 
+
+      } else if (data && data.roles.includes('client')) {
         item.style.backgroundColor = '#004040';
-      } else if (role === 'lawer') {
+      
+      } else if (data && data.roles.includes('lawer')) {
         item.style.backgroundColor = '#203470';
+        if (this.rprt) {
+          this.rprt.style.display = 'block';
+        }    
+        if (this.mtns) {
+          this.mtns.style.display = 'block';
+        } 
+        
       } else {
         item.style.backgroundColor = '#41310A';
       }
     }
   }
 
-  assignToHeader(role:string) {
+  assignToHeader(data: IUserData|null) {
     let items = Array.from(document.getElementsByClassName('header'));
     for (let i = 0; i < items.length; i++) {
       const item = items[i] as HTMLElement;
-      if (role === 'admin') {
+      
+      if (data && data.roles.includes('admin')) {
         item.style.backgroundColor = '#262626';  /* retirar esses hardcore aê*/
-      } else if (role === 'client') {
+      
+      } else if (data && data.roles.includes('client')) {
         item.style.backgroundColor = '#004040';
-      } else if (role === 'lawer') {
+      
+      } else if (data && data.roles.includes('lawer')) {
         item.style.backgroundColor = '#203470';
+      
       } else {
         item.style.backgroundColor = '#41310A';
       }

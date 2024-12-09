@@ -1,11 +1,11 @@
 <div class="form-container default-view session">
     <form action="" class="log-in" autocomplete="on" form (ngSubmit)="register()"[formGroup]="formGroup">
-      <h4 class="title">Seja bem vindo!</h4>
-  
+      <h4 class="title">Registre-se</h4>
+      <p class="small">Dados de cadastro</p>  
       <div class="form-line">
         <i class="fa-solid fa-envelope form-icon"></i>
         <div class="floating-label">
-          <input type="text" class="form-control" formControlName="userName" id="userName" placeholder="Digite seu nome">
+          <input type="text" class="form-control" formControlName="userName" id="userName" placeholder="Informe o seu nome">
           <label for="email">Usuário</label>
         </div>
       </div>
@@ -13,7 +13,7 @@
       <div class="form-line">
         <i class="fa-solid fa-lock form-icon"></i>
         <div class="floating-label">
-          <input type="password" class="form-control" formControlName="userPassword" id="userPassword" placeholder="Digite sua senha">
+          <input type="password" class="form-control" formControlName="userPassword" id="userPassword" placeholder="E a sua senha">
           <label for="password">Senha</label>
         </div>
       </div>

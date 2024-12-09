@@ -8,7 +8,7 @@ import { DataServices }                     from '../../../services/session.serv
             imports: [ReactiveFormsModule, RouterLink], 
             templateUrl: "./login.component.html", 
             styleUrl: './login.component.css' })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   constructor(
     private dataServices: DataServices,
     private router: Router,
@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (this.dataServices.hasData()) {
-      this.router.navigate(['/home']);
+    if (this.dataServices.hasUser()) {
+      this.logout();
     }
   }
 
@@ -35,16 +35,17 @@ export class LoginComponent implements OnInit {
       alert('Dados inválidos.');
       return;
     }
+
     const { userName, userPassword } = this.formGroup.value;
     var user = this.dataServices.findUser(userName, userPassword);
     if (user) {
       this.dataServices.setAsCurrent(user);
       if (user.roles.includes('admin')) {
-        this.router.navigate(["/admin"]);
+        this.router.navigate(["/dashboard"]);
       } else if (user.roles.includes('lawer')) {
-        this.router.navigate(["/lawer"]);
+        this.router.navigate(["/meetings"]);
       } else if (user.roles.includes('client')) {
-        this.router.navigate(["/client"]);
+        this.router.navigate(["/reports"]);
       } else {
         this.router.navigate(['/']);
       }
@@ -55,8 +56,8 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
-    this.view.reset();
     this.dataServices.endSession();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
+    this.view.reset(this.dataServices.currentUser);
   }
 }

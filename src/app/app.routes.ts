@@ -29,6 +29,6 @@ export const routes: Routes = [
     { path: 'admin',     component: DashboardComponent,  canActivate: [AuthGuard] }, /*AdminComponent*/
     { path: 'dashboard', component: DashboardComponent,  canActivate: [AuthGuard] },
     { path: 'firebase',  component: FirebaseComponent,   canActivate: [AuthGuard] },
-    { path: 'next',      component: NextComponent,   canActivate: [AuthGuard] },
+    { path: 'next',      component: NextComponent,       canActivate: [AuthGuard] },
 ];
 

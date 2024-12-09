@@ -1,6 +1,17 @@
-.author {
+.develop, .sponsor {
     color: var(--goldenrod-0);
 }
-.copyright {
+.author, .copyright {
     color: var(--goldenrod-W5);
+}
+a {
+    text-decoration: none;
+}
+.author a:hover {
+    /* border-bottom: 2px solid var(--goldenrod-0); */
+    text-decoration: underline;
+}
+.between {
+    display: flex;
+    justify-content: space-between;
 }

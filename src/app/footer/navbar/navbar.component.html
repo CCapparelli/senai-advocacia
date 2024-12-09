@@ -1,8 +1,38 @@
-<div class="footer">
-    <ul class="nav justify-content-center border-bottom mb-2">
-        <li class="nav-item"><a href="#divContact" class="nav-link px-3">Contratar</a></li>
-        <li class="nav-item"><a (click)="navRequested('/team');" class="nav-link px-3">Associados</a></li>
-        <li class="nav-item"><a (click)="navRequested('/policies');" class="nav-link px-3">Políticas</a></li>
-    </ul>
+<div class="footer f-columns py-2">
+    <div class="f-section">
+        <h6 class="f-title">Linguagem</h6>
+        <a href="#" class="ready">Português</a>
+        <a href="#">Inglês</a>
+        <a href="#">Espanhol</a>
+    </div>
+    <div class="f-section">
+        <h6 class="f-title">Clientes</h6>
+        <a (click)="navRequested('/reports');" class="ready">Relatórios</a>
+        <a href="#">Calendário</a>
+        <a href="#">Pendências</a> 
+    </div>
+    <div class="f-section">
+        <h6 class="f-title">Associados</h6>
+        <a (click)="navRequested('/meetings');" class="ready">Reuniões</a>
+        <a href="#">Calendário</a>
+        <a href="#">Processos</a> 
+    </div>
+    <div class="f-section">
+        <h6 class="f-title">Saiba mais:</h6>
+        <a href="#divContact" class="ready">Como nos contratar</a>
+        <a href="#divTeam" class="ready">Lista de associados</a>
+        <a (click)="navRequested('/policies');" class="ready">Políticas de privacidade</a>
+        <a href="#">Termos de serviços</a>
+    </div>
+    <div class="f-section">
+        <h6 class="f-title">Onde estamos</h6>
+        <a href="#">Brasília</a> 
+        <a href="#">São Paulo</a> 
+        <a href="#">Nova York</a> 
+        <a href="#">Londres</a> 
+    </div>
+    <div class="f-section titleless map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2859.019402652448!2d-48.07229299087602!3d-15.820639684760081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3391b366fc47%3A0x88c16b784a3ad98f!2sSenai%20Taguatinga!5e1!3m2!1sen!2sbr!4v1733663470638!5m2!1sen!2sbr" width="140" height="90" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </div>
 
