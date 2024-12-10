@@ -1,5 +1,5 @@
 .default-view-img {
-  background-image: url(./../../../../../public/assets/img/banner/img2.png);
+  background-image: url(/assets/img/banner/img2.png);
   padding: 50px;
   display: flex;
   flex-direction: column;

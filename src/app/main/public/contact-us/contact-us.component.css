@@ -1,5 +1,5 @@
 .default-view-img {
-  background-image: url(./../../../../../public/assets/img/banner/img3.png);
+  background-image: url(/assets/img/banner/img3.png);
   padding: 50px;
   color: var(--goldenrod-W5);
 }
