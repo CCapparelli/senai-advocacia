@@ -8,12 +8,9 @@
   color: var(--goldenrod-W5);
 }
 
-.section-borders {
-  padding: 20px;
-  border-radius: 20px;
-  background-color: rgba(38, 38, 38, 0.850);
+.self-center {
+  width: 80%;
 }
-
 .view-intro {
     width: 100%;
     display: flex;

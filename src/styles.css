@@ -98,7 +98,31 @@ a {
 }
 
 /* default (outer) */
-
+.section {
+  margin: 0 50px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+}
+.section-borders {
+  width: 50%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color:  rgba(38, 38, 38, 0.850);
+}
+.self-center {
+  align-self: center;
+}
+.self-end {
+  align-self: end;
+}
+.section h2, .section p {
+  color: var(--gray-W3);
+  opacity: 1;
+}
+.section h2 {
+  padding-top: 45px;
+}
 .default-view {
     width: 100%;
     padding-top: 45px;
@@ -223,13 +247,7 @@ p {
 label {
   text-align: start;
 }
-.section {
-  margin: 0 auto;
-  padding: 30px;
-  padding-top: 70px;
-  text-align: center;
-  position: relative;
-}
+
 .topSpacer {
   height: 80px;
   position: sticky;
