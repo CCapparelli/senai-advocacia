@@ -1,0 +1,42 @@
+<div class="inner-view">
+    <aside id="sideBar"  class="sidebar">
+      <div class="side-top">
+        <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do administrador"></i>
+        <p class="title m-0 p-0">Admin</p>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item" routerLink="/dashboard">Dashboard</li>
+        <li class="menu-item">Registros</li>
+        <li class="menu-item" routerLink="/firebase">Firebase</li>
+        <li class="menu-item">Chamadas</li>
+        <li class="menu-item" routerLink="/next">Próximos passos</li>
+      </ul>
+    </aside>
+    <div class="main-content">
+      <div class="f-sp-b">
+        <p class="title m-0 p-0">Registros</p>
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <option value="users" selected>Usuários</option>
+            <option value="appointments">Apontamentos</option>
+            <option value="faqs">FAQs</option>
+            <option value="etc">...</option>
+          </select>
+          <label for="floatingSelect">Cadastros:</label>
+        </div>
+      </div>
+      <div id="table-container" class="container">
+        
+      </div>
+      <div class="f-jc-e">
+        <button class="btn btn-success" ><i class="fa-solid fa-add" title="Adicionar"></i></button>
+        <!-- <button class="btn btn-success" (click)="add()"><i class="fa-solid fa-add" title="Adicionar"></i></button> -->
+      </div>
+    </div>
+</div>
+<div id="modal-container">
+        
+</div>
+
+
+

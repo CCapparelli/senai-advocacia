@@ -1,8 +1,8 @@
 import { Router, RouterLink }               from "@angular/router";
 import { Component, OnInit }                from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ViewUpdater }                      from '../../../model/model';
-import { DataServices }                     from '../../../services/session.services';
+import { ViewUpdater }                      from '../../model/model';
+import { DataServices }                     from '../../services/session.services';
 
 @Component({selector: "app-login", 
             imports: [ReactiveFormsModule, RouterLink], 
@@ -14,12 +14,6 @@ export class LoginComponent {
     private router: Router,
     private view: ViewUpdater
   ) {}
-
-  ngOnInit(): void {
-    if (this.dataServices.hasUser()) {
-      this.logout();
-    }
-  }
 
   formGroup: FormGroup = new FormGroup({
       userName:     new FormControl<string>("", {nonNullable: true,

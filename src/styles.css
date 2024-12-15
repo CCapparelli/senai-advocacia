@@ -254,3 +254,43 @@ label {
   z-index: 1;
   display: hidden;
 }
+
+/* IModal, ITable, ... */
+
+.f-sp-b {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px
+}
+.f-jc-e {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.form-control, .form-control:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.fa-pen-to-square {
+  color: orange;
+}
+.fa-trash {
+  color: red;
+}
+.buttons {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.app-form {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

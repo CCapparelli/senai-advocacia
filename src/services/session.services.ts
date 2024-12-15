@@ -2,7 +2,7 @@
 import { Injectable, OnInit } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import { MocData, SafeSessionStore, SessionStore } from '../model/model';
-import { ISafeUserData, IUserData } from "../model/interface";
+import { IUserAuth, IUserData } from "../app/data/model/entities/omUser";
 
 @Injectable({providedIn: "root"})
 class SessionServices {
@@ -74,7 +74,7 @@ class SessionSafeServices {
     }
   }
 
-  private session = new BehaviorSubject<ISafeUserData|null>(null);
+  private session = new BehaviorSubject<IUserAuth|null>(null);
 
   isBrowser    = () => typeof window !== "undefined";
   // isLogged     = () => this.session.value !== null;
@@ -91,7 +91,7 @@ class SessionSafeServices {
     }
   }
 
-  save(data: ISafeUserData) {
+  save(data: IUserAuth) {
     if (this.hasSessionStore()) {
       this.safe.set(data);
       this.session.next(data);
@@ -154,18 +154,18 @@ export class DataServices {
     return result;
   }
 
-  setAsCurrent(userData: IUserData) {
-    const user = this.mocData.for(userData.name, userData.pass);
+  setAsCurrent(userData: IUserAuth) {
+    const user = this.mocData.for(userData.email, userData.pass);
     if (!user) {
-      this.mocData.add(userData);
+      // this.mocData.add(userData);
     }
-    this.unsafe.saveUserData(userData);
+    // this.unsafe.saveUserData(userData);
     this.currentUser = user;
   }
 
   register(userName: string, password: string) {
     var newData = { name: userName, pass: password, roles: ['client'], paths: ['reports'] };
-    this.mocData.add(newData);
+    // this.mocData.add(newData);
   }
   
   

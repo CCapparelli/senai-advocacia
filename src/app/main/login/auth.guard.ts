@@ -23,8 +23,8 @@ export class AuthGuard implements CanActivate {
         const isAdmin     = user.roles.includes('admin');
         if (isAdmin) return true; 
 
-        const clientItems = ['reports', 'calendar', 'pendencies'];
-        const lawerItems  = ['meetings', 'clients'];
+        const clientItems = ['reports', 'calendar', 'pendencies','client'];
+        const lawerItems  = ['meetings', 'clients','lawer'];
 
         const isClient    = user.roles.includes('client');
         const client      = isClient && clientItems.includes(requested);
