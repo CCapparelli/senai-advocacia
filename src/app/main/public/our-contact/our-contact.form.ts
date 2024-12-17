@@ -1,7 +1,7 @@
-import { IForm } from "../../../data/model/guiOM";
-import { DOM } from '../../../dom/html';
-import { FloatingForm } from '../../../dom/forms';
-import { IContactMessage, emptyContactMessage } from "../../../data/model/entities/omRoot";
+import { IContactMessage, emptyContactMessage } from "../../../../model/ui";
+import { IForm } from "../../../../model/ui.contracts";
+import { FloatingForm } from "../../../../services/ui/forms";
+import { Html } from "../../../../services/ui/html";
 
 export class OurContactForm {
   private component: IForm<IContactMessage>;
@@ -17,7 +17,7 @@ export class OurContactForm {
     if (!this.container) return;
     this.container.innerHTML = '';
 
-    let form  = DOM.append(this.container, 'form', ['app-form','form-floating']);
+    let form  = Html.append(this.container, 'form', ['app-form','form-floating']);
 
     FloatingForm.Input('txtName', 'text', 'Nome', msg.senderName, form);
     FloatingForm.Input('txtEmail', 'email', 'Email', msg.senderEmail, form);
@@ -25,8 +25,8 @@ export class OurContactForm {
     FloatingForm.Input('txtTitle', 'text', 'Assunto', msg.messageTitle, form);
     FloatingForm.Input('txtMessage', 'textArea', 'Mensagem', msg.messageText, form);
 
-    let spaced = DOM.append(form, 'div', ['f-jc-e']);
-    const btnSubmit = DOM.appendType(spaced, 'button', 'button', ['btn', 'btn-primary'], 'Submit');
+    let spaced = Html.append(form, 'div', ['f-jc-e']);
+    const btnSubmit = Html.appendType(spaced, 'button', 'button', ['btn', 'btn-primary'], 'Submit');
     btnSubmit.addEventListener('click', () => this.submit());
   }
 

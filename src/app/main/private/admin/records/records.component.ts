@@ -1,12 +1,13 @@
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { UserLocalContext } from '../../../../data/model/contexts/users/userContext';
-import { UserTableManager } from '../../../../data/model/contexts/users/guiUserTable';
-import { UserModalManager } from '../../../../data/model/contexts/users/guiUserModal';
-import { IUserData, emptyUserData } from "../../../../data/model/entities/omUser";
-import { IModal, ITable } from '../../../../data/model/guiOM';
+import { IModal, ITable } from '../../../../../model/ui.contracts';
+import { IUserData, emptyUserData } from '../../../../../model/user/om';
+import { UserModalManager } from '../../../../../model/user/uiModal';
+import { UserTableManager } from '../../../../../model/user/uiTable';
+import { UsersContext } from '../../../../../model/user/context';
+
 
 @Component({
   selector: 'app-records',
@@ -24,8 +25,8 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
   public modalBuilder : UserModalManager;
   public tableBuilder : UserTableManager<IUserData>;
 
-  constructor(private usersContext: UserLocalContext) {
-    this.list           = this.usersContext.list;
+  constructor(private usersContext: UsersContext) {
+    this.list           = this.usersContext.list();
     this.current        = emptyUserData;
     
     this.tableBuilder   = new UserTableManager(this, this.usersContext);
@@ -43,8 +44,6 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
 
     this.modalContainer = document.getElementById('modal-container');
     this.modalBuilder = new UserModalManager(this);
-    // this.modalBuilder.load(emptyUserData);
-
   }
 
   add() {

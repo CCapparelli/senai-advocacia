@@ -15,10 +15,9 @@
     <div class="main-content">
       <div class="f-sp-b">
         <p class="title m-0 p-0">Registros</p>
-        <div class="form-floating">
+        <div class="form-floating form-floating-dark" data-bs-theme="dark">
           <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
             <option value="users" selected>Usuários</option>
-            <option value="appointments">Apontamentos</option>
             <option value="faqs">FAQs</option>
             <option value="etc">...</option>
           </select>
@@ -29,12 +28,11 @@
         
       </div>
       <div class="f-jc-e">
-        <button class="btn btn-success" ><i class="fa-solid fa-add" title="Adicionar"></i></button>
-        <!-- <button class="btn btn-success" (click)="add()"><i class="fa-solid fa-add" title="Adicionar"></i></button> -->
+        <button class="btn btn-success btn-dark" (click)="add()"  data-bs-theme="dark"><i class="fa-solid fa-add" title="Adicionar"></i></button>
       </div>
     </div>
 </div>
-<div id="modal-container">
+<div id="modal-container" class="modal" data-bs-theme="dark">
         
 </div>
 

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataServices } from '../../../../../services/session.services';
+import { Router, RouterLink } from '@angular/router';
+import { DataServices } from '../../../../../services/dataService';
 
 @Component({
   selector: 'client-reports',
+  imports: [RouterLink],
   templateUrl: './reports.component.html',
   styleUrl: './reports.component.css'
 })

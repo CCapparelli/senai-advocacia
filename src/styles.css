@@ -67,7 +67,7 @@
     --gray-B2: #4C4C4C; /**/
     --gray-B3: #404040; /**/
     --gray-B4: #262626; /**/
-    --gray-B5: #0D0D0D; /**/
+    --gray-B5: #343a40; /*343a40 0D0D0D*/
     /* --gray-Q1: #526631; 
     --gray-Q2: #1C4D3F; 
     --gray-S1: #20B2DA; 
@@ -256,6 +256,15 @@ label {
 }
 
 /* IModal, ITable, ... */
+.modal-header {
+  border-bottom: none;
+}
+.modal-footer {
+  border-top: none;
+}
+.modal-title-dark {
+  color:white;
+}
 
 .f-sp-b {
   width: 100%;
@@ -273,6 +282,9 @@ label {
 .form-control, .form-control:focus {
   border: none;
   box-shadow: none;
+}
+.form-control:visited {
+  background-color: transparent;  
 }
 
 .fa-pen-to-square {

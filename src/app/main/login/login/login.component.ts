@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ILogin, emptyLogin } from '../../../data/model/entities/omRoot';
-import { IForm } from '../../../data/model/guiOM';
+import { IForm } from '../../../../model/ui.contracts';
 import { LoginForm } from './login.form';
-import { Router }               from "@angular/router";
-import { DataServices }                     from '../../../../services/session.services';
-import { ViewUpdater }                      from '../../../../model/model';
+import { ILogin, emptyLogin } from '../../../../model/ui';
+import { DataServices } from '../../../../services/dataService';
+import { Router } from '@angular/router';
+import { ViewUpdater } from '../../../../services/uiServices';
+
 
 @Component({
   selector: 'app-login',
@@ -38,18 +39,19 @@ export class LoginComponent implements IForm<ILogin>, OnInit, AfterViewInit {
   }
 
   login(msg: ILogin) {
-    var user = this.dataServices.findUser(msg.email, msg.password);
+    var user = this.dataServices.findUser(msg.email); //, msg.password);
     if (user) {
-      // this.dataServices.setAsCurrent(user);
+      this.dataServices.setAsCurrent(user);
+      
       if (user.roles.includes('admin')) {
         // this.router.navigate(["/admin"]);
-        this.router.navigate(["/dashboard"]);
+        this.router.navigate(["/records"]);
       } else if (user.roles.includes('lawer')) {
-        // this.router.navigate(["/lawer"]);
-        this.router.navigate(["/meetings"]);
+        this.router.navigate(["/lawer"]);
+        // this.router.navigate(["/meetings"]);
       } else if (user.roles.includes('client')) {
-        // this.router.navigate(["/client"]);
-        this.router.navigate(["/reports"]);
+        this.router.navigate(["/client"]);
+        // this.router.navigate(["/reports"]);
       } else {
         this.router.navigate(['/']);
       }

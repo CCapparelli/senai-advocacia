@@ -1,0 +1,27 @@
+.sidebar {
+    background: var(--teal-B3);
+    color: var(--teal-W3);
+  }
+  
+  .sidebar ul li {
+    background: var(--teal-B1);
+  }
+  
+  .sidebar ul li:hover {
+    background: var(--teal-0);
+  }
+  
+  .main-content {
+    background: var(--teal-B4);
+    color: var(--teal-W3);
+  }
+  
+  button {
+    background: var(--teal-B3);
+    color: var(--teal-W3);
+  }
+  
+  button:hover {
+    background: var(--teal-B1);
+  }
+  

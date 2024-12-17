@@ -1,8 +1,9 @@
+
 .expanded {
     width: 250px;   
   }
   .main-content {
-    background: var(--gray-B5);
+    background: var(--gray-B4);
     color: var(--gray-W3);
     display: flex!important;
     flex-direction: column;

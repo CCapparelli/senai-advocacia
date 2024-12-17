@@ -1,10 +1,11 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { ISignup, emptySignup } from '../../../data/model/entities/omRoot';
-import { IForm } from '../../../data/model/guiOM';
 import { SignupForm } from './signup.form';
 import { Router }               from "@angular/router";
-import { DataServices }                     from '../../../../services/session.services';
-import { ViewUpdater }                      from '../../../../model/model';
+import { IForm } from '../../../../model/ui.contracts';
+import { ISignup, emptySignup } from '../../../../model/ui';
+import { DataServices } from '../../../../services/dataService';
+import { ViewUpdater } from '../../../../services/uiServices';
+
 
 @Component({
   selector: 'app-signup',
@@ -32,7 +33,7 @@ export class SignupComponent implements IForm<ISignup>, AfterViewInit {
     }
 
 register(msg: ISignup) {
-  var user = this.dataServices.findUser(msg.email, msg.password);
+  var user = this.dataServices.findUser(msg.email);
   if (user) {
     alert('Usuário já cadastrado');
   } else {

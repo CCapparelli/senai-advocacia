@@ -1,11 +1,11 @@
 import { Routes }                 from '@angular/router';
 import { MainComponent }          from './main/main.component';
 import { TeamComponent }          from './main/public/our-team/our-team.component';
-import { ContactUsComponent }     from '../old/contact-us/contact-us.component';
+import { OurContactComponent }    from './main/public/our-contact/our-contact.component';
 import { OurPoliciesComponent }   from './main/public/our-policies/our-policies.component';
 import { LoginComponent }         from './main/login/login/login.component';
 import { SignupComponent }        from './main/login/signup/signup.component';
-import { AuthGuard }              from './main/login/auth.guard';
+import { AuthGuard }              from '../services/auth.guard';
 import { AdminComponent }         from './main/private/admin/admin.component';
 import { DashboardComponent }     from './main/private/admin/dashboard/dashboard.component';
 import { FirebaseComponent }      from './main/private/admin/firebase/firebase.component';
@@ -18,7 +18,7 @@ import { RecordsComponent }       from './main/private/admin/records/records.com
 
 export const routes: Routes = [
     { path: '',          component: MainComponent },
-    { path: 'contact',   component: ContactUsComponent },
+    { path: 'contact',   component: OurContactComponent },
     { path: 'login',     component: LoginComponent },
     { path: 'signup',    component: SignupComponent },
     { path: 'policies',  component: OurPoliciesComponent },

@@ -1,7 +1,7 @@
-import { IForm } from "../../../data/model/guiOM";
-import { DOM } from '../../../dom/html';
-import { FloatingForm } from '../../../dom/forms';
-import { ILogin, emptyLogin } from "../../../data/model/entities/omRoot";
+import { ILogin, emptyLogin } from "../../../../model/ui";
+import { IForm } from "../../../../model/ui.contracts";
+import { FloatingForm } from "../../../../services/ui/forms";
+import { Html } from "../../../../services/ui/html";
 
 export class LoginForm {
   private component: IForm<ILogin>;
@@ -17,14 +17,14 @@ export class LoginForm {
     if (!this.container) return;
     this.container.innerHTML = '';
 
-    let form  = DOM.append(this.container, 'form', ['form', 'app-form','form-floating', 'log-in']);
+    let form  = Html.append(this.container, 'form', ['form', 'app-form','form-floating', 'log-in']);
 
     FloatingForm.Input('txtEmail', 'text', 'Email', msg.email, form);
     FloatingForm.Input('txtPass', 'password', 'Senha', msg.password, form);
     
-    let div = DOM.append(form, 'div', ['f-sp-b']);
-    const btnSingup = DOM.appendText(div, 'a', ['discrete'], 'Registre-se');
-    const btnSubmit = DOM.appendText(div, 'button', ['btn', 'btn-primary'], 'Login');
+    let div = Html.append(form, 'div', ['f-sp-b']);
+    const btnSingup = Html.appendText(div, 'a', ['discrete'], 'Registre-se');
+    const btnSubmit = Html.appendText(div, 'button', ['btn', 'btn-primary'], 'Login');
     
     // btnSingup.setAttribute('routerLink','/signup');
     btnSingup.addEventListener('click', () => this.signup());    

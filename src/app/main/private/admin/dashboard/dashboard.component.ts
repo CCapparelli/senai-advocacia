@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { DataServices } from '../../../../../services/session.services';
+import { DataServices } from '../../../../../services/dataService';
 
 @Component({
   selector: 'admin-dashboard',

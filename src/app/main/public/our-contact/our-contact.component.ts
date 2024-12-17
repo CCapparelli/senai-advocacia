@@ -1,7 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { IContactMessage, emptyContactMessage } from '../../../data/model/entities/omRoot';
-import { IForm } from '../../../data/model/guiOM';
 import { OurContactForm } from './our-contact.form';
+import { IForm } from '../../../../model/ui.contracts';
+import { IContactMessage, emptyContactMessage } from '../../../../model/ui';
 
 @Component({
   selector: 'our-contact',
