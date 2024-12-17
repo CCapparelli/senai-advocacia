@@ -16,11 +16,26 @@
   color: var(--teal-W3);
 }
 
-button {
-  background: var(--teal-B3);
+.title {
+  border-bottom: 1px solid var(--teal-W3);
+}
+.main-content {
+  background: var(--teal-B4);
   color: var(--teal-W3);
 }
-
-button:hover {
-  background: var(--teal-B1);
+  
+.menu-item {
+  background: var(--royal-B3);
+  color: var(--teal-W3);
+  text-align: start;
+}
+.menu-item:hover {
+  background-color: var(--teal-B4);
+  text-align: end;
+}
+.active {
+  background: var(--teal-B3);
+  color: var(--teal-W5);
+  font-weight: bold;
+  text-align: end;
 }

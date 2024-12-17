@@ -12,8 +12,7 @@ export class Address {
     }
 
     toString() {
-        return `${this.address}
-        ${this.postalCode} - ${this.city}/${this.state}`;
+        return `${this.address} | ${this.city}/${this.state} | ${this.postalCode}`;
     }
 }
 

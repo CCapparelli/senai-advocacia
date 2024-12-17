@@ -4,14 +4,14 @@ import { IUserData } from '../model/user/om';
 
 @Injectable({providedIn: "root"})
 export class ViewUpdater {
-  private text : HTMLElement|null;
+  private opts : HTMLElement|null;
   private dash : HTMLElement|null;
   private rprt : HTMLElement|null;
   private mtns : HTMLElement|null;
   private btnLogin : HTMLElement|null;
 
   constructor(private router: Router) {
-    this.text = document.getElementById('txt-userName');
+    this.opts = document.getElementById('divAreas');
     this.dash = document.getElementById('link-dash');
     this.rprt = document.getElementById('link-reports');
     this.mtns = document.getElementById('link-meetings');
@@ -20,9 +20,8 @@ export class ViewUpdater {
  
 
   reset(data: IUserData|null) {
-    if (this.text) {
-      this.text.innerText = '';
-      this.text.style.display = 'none';
+    if (this.opts) {
+      this.opts.style.display = 'none';
     }
     if (this.btnLogin) {
       this.btnLogin.innerText = 'Login';
@@ -45,9 +44,8 @@ export class ViewUpdater {
     if (this.btnLogin) {
       this.btnLogin.innerText = 'Logout';
     }
-    if (this.text) {
-      this.text.innerText = data.name;
-      this.text.style.display = 'block';
+    if (this.opts) {
+      this.opts.style.display = 'block';
     }
     this.assignToFooter(data);
     this.assignToHeader(data);

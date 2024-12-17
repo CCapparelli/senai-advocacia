@@ -3,6 +3,9 @@ import { Observable, retryWhen }    from "rxjs";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { DataServices } from "./dataService";
 
+export const clientItems = ['reports', 'calendar', 'pendencies','client'];
+export const lawerItems  = ['meetings', 'clients','lawer'];
+
 @Injectable({providedIn: "root"})
 export class AuthGuard implements CanActivate {
   constructor(private dataServices: DataServices, private router: Router) { }
@@ -22,9 +25,6 @@ export class AuthGuard implements CanActivate {
       if (user) {
         const isAdmin     = user.roles.includes('admin');
         if (isAdmin) return true; 
-
-        const clientItems = ['reports', 'calendar', 'pendencies','client'];
-        const lawerItems  = ['meetings', 'clients','lawer'];
 
         const isClient    = user.roles.includes('client');
         const client      = isClient && clientItems.includes(requested);

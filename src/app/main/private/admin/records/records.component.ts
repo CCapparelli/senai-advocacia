@@ -4,9 +4,10 @@ import { Component, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IModal, ITable } from '../../../../../model/ui.contracts';
 import { IUserData, emptyUserData } from '../../../../../model/user/om';
-import { UserModalManager } from '../../../../../model/user/uiModal';
-import { UserTableManager } from '../../../../../model/user/uiTable';
+import { UserModal } from '../../../../../model/user/userModal';
+import { UsersTable } from '../../../../../model/user/usersTable';
 import { UsersContext } from '../../../../../model/user/context';
+import { DataServices } from '../../../../../services/dataService';
 
 
 @Component({
@@ -21,57 +22,56 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
 
   current: IUserData;
   modalContainer: HTMLElement|null = null;
+  currentName : string|undefined = 'Admin'
 
-  public modalBuilder : UserModalManager;
-  public tableBuilder : UserTableManager<IUserData>;
+  public modalBuilder : UserModal;
+  public tableBuilder : UsersTable;
 
-  constructor(private usersContext: UsersContext) {
+  constructor(private dataService: DataServices, private usersContext: UsersContext) {
     this.list           = this.usersContext.list();
     this.current        = emptyUserData;
     
-    this.tableBuilder   = new UserTableManager(this, this.usersContext);
-    this.modalBuilder   = new UserModalManager(this);
+    this.tableBuilder   = new UsersTable(this, this.usersContext, true);
+    this.modalBuilder   = new UserModal(this, true);
+    this.currentName    = this.dataService.currentUser?.name;
   }
 
   ngAfterViewInit(): void {
-    // this.formContainer = document.getElementById('divLoginForm');
-    // this.form = new LoginForm(this);
-    // this.form.load(emptyLogin);
-
     this.tableContainer = document.getElementById('table-container');
-    this.tableBuilder = new UserTableManager(this, this.usersContext);
-    this.tableBuilder.list();
-
+    this.tableBuilder = new UsersTable(this, this.usersContext, true);
+    
     this.modalContainer = document.getElementById('modal-container');
-    this.modalBuilder = new UserModalManager(this);
+    this.modalBuilder = new UserModal(this, true);
   }
 
   add() {
     this.current = emptyUserData;
+    this.modalBuilder.init('Incluindo...');
     this.modalBuilder.show(this.current);
   }
 
   // ITable
   edit(user: IUserData) {
     this.current = user;
+    this.modalBuilder.init('Editando...');
     this.modalBuilder.show(user);
   } 
   remove(item: IUserData) {
     const goOn = confirm(`Você tem certeza que quer deletar ${item.name}?`);
     if(goOn) {
       this.usersContext.remove(item);
-      this.tableBuilder.list();
+      this.tableBuilder.fill();
     }
   }
 
   // IModal
   saveOrUptade(item: IUserData): void {
-    this.usersContext.saveOrUptade(item);
-    this.tableBuilder.list();
-    this.modalBuilder.hide();
+    if (item.email.length > 0) {
+      this.usersContext.saveOrUptade(item);
+      this.tableBuilder.fill();
+      this.modalBuilder.hide();
+    }
   }
-
-
 
   expanded: boolean = false;
   toogleMenu() {
@@ -80,12 +80,11 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
     const bar = document.getElementById('sideBar');
     if (btn && bar) {
       if (this.expanded) {
-        bar.style.width = '300px';
+        bar.style.width = '260px';
         btn.className = 'menu-x fa-solid fa-x';
       } else {
         bar.style.width = '45px';
         btn.className = 'menu-bars fa-solid fa-bars';
-
       }
     }
   }

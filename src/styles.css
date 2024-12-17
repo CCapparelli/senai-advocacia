@@ -67,7 +67,7 @@
     --gray-B2: #4C4C4C; /**/
     --gray-B3: #404040; /**/
     --gray-B4: #262626; /**/
-    --gray-B5: #343a40; /*343a40 0D0D0D*/
+    --gray-B5: #0D0D0D; /*343a40 */
     /* --gray-Q1: #526631; 
     --gray-Q2: #1C4D3F; 
     --gray-S1: #20B2DA; 
@@ -159,7 +159,7 @@ a {
   }
   
   .sidebar {
-    width: 45px; /* Largura fixa da barra lateral */
+    width: 45px; 
     background: #4c4f56;
     color: white;
     padding: 5px 20px;
@@ -175,6 +175,7 @@ a {
   } 
 
   .title {
+    text-align: center;
     font-size: 24px;
   }
   .menu-bars {
@@ -183,12 +184,10 @@ a {
     cursor: pointer;
   } 
   .menu-x {
-    font-size: 8px;
-    height: 18px;
-    padding: 5px;
     cursor: pointer;
-    border-radius: 5px;
-    border: solid 1px var(--gray-0);
+  } 
+  .menu-x:hover {
+    color: white;
   } 
   .menu-list {
     width: 100%;
@@ -288,10 +287,15 @@ label {
 }
 
 .fa-pen-to-square {
-  color: orange;
+  color: var(--gray-B2);
 }
 .fa-trash {
-  color: red;
+  color: var(--gray-B2);
+}.fa-pen-to-square:hover {
+  color: var(--gray-W5);
+}
+.fa-trash:hover {
+  color: tomato;
 }
 .buttons {
   display: flex;
@@ -304,5 +308,5 @@ label {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }

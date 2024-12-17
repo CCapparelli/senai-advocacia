@@ -44,14 +44,11 @@ export class LoginComponent implements IForm<ILogin>, OnInit, AfterViewInit {
       this.dataServices.setAsCurrent(user);
       
       if (user.roles.includes('admin')) {
-        // this.router.navigate(["/admin"]);
         this.router.navigate(["/records"]);
       } else if (user.roles.includes('lawer')) {
         this.router.navigate(["/lawer"]);
-        // this.router.navigate(["/meetings"]);
       } else if (user.roles.includes('client')) {
         this.router.navigate(["/client"]);
-        // this.router.navigate(["/reports"]);
       } else {
         this.router.navigate(['/']);
       }

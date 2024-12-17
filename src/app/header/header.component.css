@@ -8,7 +8,16 @@
     background:var(--goldenrod-B5);
     border-bottom:3px solid #000;
   }
-
+.areas {
+    margin: 0;
+    padding: 0;
+    color: var(--goldenrod-W5);
+}
+.areas p {
+    margin: 0;
+    padding: 0;
+    color: var(--goldenrod-W1);
+}
   .logo a {
     display: flex;
     justify-content: start;
