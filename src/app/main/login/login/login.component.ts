@@ -15,11 +15,11 @@ import { ViewUpdater } from '../../../../services/uiServices';
 export class LoginComponent implements IForm<ILogin>, OnInit, AfterViewInit {
   form  : LoginForm|null = null;
   formContainer: HTMLElement|null = null;
-  
+
   constructor(
     private dataServices: DataServices,
     private router: Router,
-    private view: ViewUpdater
+    private view: 
   ) {}
 
   ngOnInit(): void {
@@ -39,20 +39,25 @@ export class LoginComponent implements IForm<ILogin>, OnInit, AfterViewInit {
   }
 
   login(msg: ILogin) {
-    var user = this.dataServices.findUser(msg.email); //, msg.password);
+    var user = this.dataServices.authenticate(msg.email, msg.password);
     if (user) {
       this.dataServices.setAsCurrent(user);
       
       if (user.roles.includes('admin')) {
         this.router.navigate(["/records"]);
+
       } else if (user.roles.includes('lawer')) {
         this.router.navigate(["/lawer"]);
+
       } else if (user.roles.includes('client')) {
         this.router.navigate(["/client"]);
+
       } else {
         this.router.navigate(['/']);
       }
       this.view.update(user);
+      this.form?.clear();
+      
     } else {
       alert('Usuário não localizado');
     }

@@ -1,13 +1,16 @@
 import { Injectable } from "@angular/core";
 import { IUserData, emptyUserData } from "../model/user/om";
 import { UsersContext } from '../model/user/context';
+import { AuthSumulator } from "./data/moc/auth.simulator";
 
 
 @Injectable({providedIn: "root"})
 export class DataServices {
     public currentUser : IUserData | null = null;
 
-  constructor(private context : UsersContext) {}
+  constructor(private context : UsersContext,
+              private authenticator : AuthSumulator
+  ) {}
 
   hasData = () : boolean => (!this.context.isEmpty());
   hasUser = () : boolean => this.currentUser !== null;
@@ -21,9 +24,14 @@ export class DataServices {
     this.context.endSession();
   }
 
-  findUser(userEmail: string) : IUserData|null {
+  authenticate(userEmail: string, password: string) : IUserData|null {
+    const token = this.authenticator.call(userEmail, password);
+    // se não retornou erro é porque validou o usuário.
+    
     return this.context.findUser(userEmail);
   }
+
+  
 
   setAsCurrent(userData: IUserData) {
     const user = this.context.findUser(userData.email);

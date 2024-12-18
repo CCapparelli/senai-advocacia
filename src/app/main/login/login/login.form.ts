@@ -3,7 +3,7 @@ import { IForm } from "../../../../model/ui.contracts";
 import { FloatingForm } from "../../../../services/ui/forms";
 import { Html } from "../../../../services/ui/html";
 
-export class LoginForm {
+export class LoginForm  {
   private component: IForm<ILogin>;
 
   container: HTMLElement|null;
@@ -38,5 +38,11 @@ export class LoginForm {
     msg.email = (document.getElementById('txtEmail') as HTMLInputElement).value;
     msg.password = (document.getElementById('txtPass') as HTMLInputElement).value;
     this.component.submit(msg);
+  }
+
+  
+  clear() {
+    (document.getElementById('txtEmail') as HTMLInputElement).value = '';
+    (document.getElementById('txtPass') as HTMLInputElement).value = '';
   }
 }

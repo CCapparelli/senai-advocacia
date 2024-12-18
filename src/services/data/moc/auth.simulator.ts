@@ -1,20 +1,21 @@
 import { of, throwError } from "rxjs";
-import { MocData } from "./user";
 import { Injectable } from "@angular/core";
 
 @Injectable({providedIn: "root"})
 export class AuthSumulator {
-  constructor(
-    private mocData : MocData
-  ) {}
-
-  // Nota da professora
+  private mocData = [
+    {email:'alice.client@acme.com', pass:'12345', token:'fake-token1' },
+    {email:'bob.lawer@acme.com', pass:'12345', token:'fake-token2' },
+    {email:'carol.admim@acme.com', pass:'12345', token:'fake-token3' },
+  ];
+  
+  // Nota da professora:
   // IMPORTANTE: para facilitar o estudo, utilizamos a lógica abaixo, porém, no
   // mundo real haveria uma chamada à uma service para acionar uma API e validar
   // o usuário e senha.
-  call(userName: string, userPassword: string) {
-    const data  = this.mocData.for(userName, userPassword);
-    return data ? of(data) : throwError(() => this.newError(`Usuário ou senha inválido`));
+  call(userEmail: string, userPassword: string) {
+    const data  = this.mocData.filter(x => x.email === userEmail && x.pass === userPassword)[0];
+    return data ? of(data.token) : throwError(() => this.newError(`Usuário ou senha inválido`));
   }
   
   // support/inner methods

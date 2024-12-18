@@ -45,7 +45,9 @@ export class ViewUpdater {
       this.btnLogin.innerText = 'Logout';
     }
     if (this.opts) {
-      this.opts.style.display = 'block';
+      let canShow = data.roles.includes('admin') || data.roles.includes('lawer');
+      if (canShow) 
+        this.opts.style.display = 'block';
     }
     this.assignToFooter(data);
     this.assignToHeader(data);

@@ -33,7 +33,7 @@ export class SignupComponent implements IForm<ISignup>, AfterViewInit {
     }
 
 register(msg: ISignup) {
-  var user = this.dataServices.findUser(msg.email);
+  var user = this.dataServices.authenticate(msg.email, msg.password);
   if (user) {
     alert('Usuário já cadastrado');
   } else {

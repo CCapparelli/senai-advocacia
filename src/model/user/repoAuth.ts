@@ -1,15 +1,14 @@
 import { ObjectStateChanged, ObjectStateChangedInfo } from "../events";
-import { IUserData } from "./om";
+import { IUserAuth } from "./om";
 
-
-export class UsersRepository { 
-    list : IUserData[] = [];
+export class UsersAuthRepository { 
+    list : IUserAuth[] = [];
 
     constructor(public objectStateChanged : ObjectStateChanged) {}
     
     isEmpty = () => (this.list.length === 0);
 
-    saveOrUpdate(user: IUserData): void {
+    saveOrUpdate(user: IUserAuth): void {
         var i = this.list.findIndex((x) => x.email === user.email);
         if (i >= 0) 
             this.list[i] = user;
@@ -19,7 +18,7 @@ export class UsersRepository {
         this.objectStateChanged.raise.next(new ObjectStateChangedInfo('savedOrUpdated', user));
     }
 
-    remove(user: IUserData) {
+    remove(user: IUserAuth) {
         var i = this.list.findIndex((x) => x.email === user.email);
         this.list.splice(i, 1);
 
