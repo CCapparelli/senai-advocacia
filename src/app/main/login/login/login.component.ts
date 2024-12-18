@@ -38,7 +38,6 @@ export class LoginComponent implements IForm<ILogin>, OnInit, AfterContentChecke
     (this.formContainer as HTMLInputElement).innerHTML = '';
     this.form = new LoginForm(this);
     this.form.load(emptyLogin);
-    // alert(`view init`);
   }
 
   submit(msg: ILogin): void {
@@ -82,5 +81,6 @@ export class LoginComponent implements IForm<ILogin>, OnInit, AfterContentChecke
     this.dataServices.endSession();
     this.view.reset(this.dataServices.currentUser);
     this.form?.clear();
+    this.router.navigate(['/']);
   }
 }
