@@ -13,14 +13,15 @@
     </div>
     <div class="f-section">
         <h6 class="f-title">Associados</h6>
-        <a (click)="navRequested('/meetings');" class="ready">Reuniões</a>
+        <a routerLink="/meetings" class="ready">Reuniões</a>
+        <!-- <a (click)="navRequested('/meetings');" class="ready">Reuniões</a> -->
         <a href="#">Calendário</a>
         <a href="#">Processos</a> 
     </div>
     <div class="f-section">
         <h6 class="f-title">Saiba mais:</h6>
+        <a href="#divTeam" class="ready">Nossos associados</a>
         <a href="#divContact" class="ready">Como nos contratar</a>
-        <a href="#divTeam" class="ready">Lista de associados</a>
         <a (click)="navRequested('/policies');" class="ready">Políticas de privacidade</a>
         <a href="#">Termos de serviços</a>
     </div>

@@ -8,14 +8,23 @@ export class UsersDataRepository {
     
     isEmpty = () => (this.list.length === 0);
 
-    saveOrUpdate(user: IUserData): void {
+    save(user: IUserData): void {
+        var i = this.list.findIndex((x) => x.email === user.email);
+        if (i >= 0) 
+            throw new Error('Email/user já cadastrado')
+        
+        this.list.push(user);
+        this.objectStateChanged.raise.next(new ObjectStateChangedInfo('saved', user));
+    }
+
+    update(user: IUserData): void {
         var i = this.list.findIndex((x) => x.email === user.email);
         if (i >= 0) 
             this.list[i] = user;
         else 
-            this.list.push(user);
+            throw new Error(`User not updated. [${user.email}]`);
 
-        this.objectStateChanged.raise.next(new ObjectStateChangedInfo('savedOrUpdated', user));
+        this.objectStateChanged.raise.next(new ObjectStateChangedInfo('updated', user));
     }
 
     remove(user: IUserData) {

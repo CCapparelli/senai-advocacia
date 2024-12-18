@@ -1,28 +1,20 @@
-import { ObjectStateChanged, ObjectStateChangedInfo } from "../events";
-import { IUserAuth } from "./om";
+import { IUserAuth, IUserData } from "./om";
 
 export class UsersAuthRepository { 
     list : IUserAuth[] = [];
 
-    constructor(public objectStateChanged : ObjectStateChanged) {}
-    
     isEmpty = () => (this.list.length === 0);
 
-    saveOrUpdate(user: IUserAuth): void {
+    save(user: IUserAuth): void {
         var i = this.list.findIndex((x) => x.email === user.email);
         if (i >= 0) 
-            this.list[i] = user;
-        else 
-            this.list.push(user);
-
-        this.objectStateChanged.raise.next(new ObjectStateChangedInfo('savedOrUpdated', user));
+            throw new Error('Email/user já cadastrado')
+        
+        this.list.push({email:`${user.email}`,  pass:`${user.pass}`, token:`user${this.list.length}-token`});
     }
-
-    remove(user: IUserAuth) {
+    remove(user: IUserData) {
         var i = this.list.findIndex((x) => x.email === user.email);
         this.list.splice(i, 1);
-
-        this.objectStateChanged.raise.next(new ObjectStateChangedInfo('removed', user));
     }
 
     wipe = () => this.list = [];

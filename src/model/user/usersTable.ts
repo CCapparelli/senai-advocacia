@@ -1,11 +1,11 @@
 import { Html } from "../../services/ui/html";
-import { IContext } from "../data.contracts";
+import { ICRUD } from "../data.contracts";
 import { Table } from "../ui";
 import { ITable } from "../ui.contracts";
 import { IUserData } from "./om";
 
 export class UsersTable extends Table<IUserData> { 
-  constructor(component : ITable<IUserData>, context: IContext<IUserData>, isDark: boolean) {
+  constructor(component : ITable<IUserData>, context: ICRUD<IUserData>, isDark: boolean) {
     super(component, context, ['Email','Nome','WhatsApp','Endereço'], isDark);
     super.fill();
   }

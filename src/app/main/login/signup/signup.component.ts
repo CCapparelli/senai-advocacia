@@ -5,6 +5,7 @@ import { IForm } from '../../../../model/ui.contracts';
 import { ISignup, emptySignup } from '../../../../model/ui';
 import { DataServices } from '../../../../services/dataService';
 import { ViewUpdater } from '../../../../services/uiServices';
+import { emptyUserAuth, emptyUserData } from '../../../../model/user/om';
 
 
 @Component({
@@ -35,11 +36,20 @@ export class SignupComponent implements IForm<ISignup>, AfterViewInit {
 register(msg: ISignup) {
   var user = this.dataServices.authenticate(msg.email, msg.password);
   if (user) {
-    alert('Usuário já cadastrado');
+    alert('Usuário/email já cadastrado');
   } else {
-    this.dataServices.register(msg.name, msg.password);
+    let x = emptyUserData;
+    x.email = msg.email;
+    x.name = msg.name;
+
+    let y = emptyUserAuth;
+    y.email = msg.email;
+    y.pass = msg.password;
+
+    this.dataServices.register(x, y);
     this.router.navigate(['/login']);
-    alert(`Parabéns, ${msg.name}.\nVocê está cadastrado\nFaça seu login!`);  }
+    alert(`Parabéns, ${msg.name}.\nVocê está cadastrado\nFaça seu login!`);  
+  }
 }
 
 }

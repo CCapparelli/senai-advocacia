@@ -3,7 +3,7 @@ import { Html } from "../../services/ui/html";
 import { Address } from "../shared";
 import { IModal } from "../ui.contracts";
 import { IUserData } from "./om";
-import { clientItems } from '../../services/auth.guard';
+import { clientItems } from '../../services/auth/authorizator';
 import { Modal } from "../ui";
 
 export class UserModal extends Modal<IUserData> {

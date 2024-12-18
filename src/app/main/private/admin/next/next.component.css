@@ -1,46 +1,58 @@
-  .main-content {
-    background: var(--gray-B5);
-    color: var(--gray-W3);
-  }
-  .main-content p:not(.title) {
-    font-size: 10pt;
-    margin-top: 5px;
-    margin-bottom: 0;
-  }
-  .sidebar {
-    background: var(--gray-B3);
-    color: var(--gray-W3);
-  }
+.main-content {
+  background: var(--gray-B5);
+  color: var(--gray-W3);
+}
+.main-content p:not(.title) {
+  font-size: 10pt;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+.main-content h5 {
+  margin-top: 30px;
+}
+.sidebar {
+  background: var(--gray-B3);
+  color: var(--gray-W3);
+}
+
+.sidebar ul li {
+  background: var(--gray-B1);
+}
+
+.sidebar ul li:hover {
+  background: var(--gray-0);
+}
+
+.title {
+  border-bottom: 1px solid var(--gray-W3);
+  width: 100%;
+}
+.main-content {
+  background: var(--gray-B4);
+  color: var(--gray-W3);
+}
   
-  .sidebar ul li {
-    background: var(--gray-B1);
+.menu-item {
+  background: var(--gray-B3);
+  color: var(--gray-W3);
+  text-align: start;
+}
+.menu-item:hover {
+  background-color: var(--gray-B4);
+  text-align: end;
+}
+.active {
+  background: var(--gray-B3);
+  color: var(--gray-W5);
+  font-weight: bold;
+  text-align: end;
+}
+
+
+  h5 {
+    margin-top: 30px;
+    margin-bottom: 5px;
   }
-  
-  .sidebar ul li:hover {
-    background: var(--gray-0);
-  }
-  
-  .title {
-    border-bottom: 1px solid var(--gray-W3);
-    width: 100%;
-  }
-  .main-content {
-    background: var(--gray-B4);
-    color: var(--gray-W3);
-  }
-    
-  .menu-item {
-    background: var(--gray-B3);
-    color: var(--gray-W3);
-    text-align: start;
-  }
-  .menu-item:hover {
-    background-color: var(--gray-B4);
-    text-align: end;
-  }
-  .active {
-    background: var(--gray-B3);
-    color: var(--gray-W5);
-    font-weight: bold;
-    text-align: end;
+  .done {
+    color: lightgreen;
   }

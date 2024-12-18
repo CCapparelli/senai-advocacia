@@ -11,9 +11,10 @@ export interface IStoreService {
     read<T>(key: string) : T|null;
     write(key: string, data: any) : void;
 }
-export interface IContext<T> {
+export interface ICRUD<T> {
     list(): T[];
-    saveOrUptade(obj : T) : void;
+    save(obj : T) : void;
+    uptade(obj : T) : void;
     remove(obj : T) : void;
     wipe() : void;
 }

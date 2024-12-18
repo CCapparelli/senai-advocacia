@@ -1,6 +1,13 @@
 import { Html } from "../services/ui/html";
-import { IContext } from "./data.contracts";
+import { ICRUD } from "./data.contracts";
 import { IModal, ITable } from "./ui.contracts";
+
+export enum CrudMode {
+  NotSet,
+  Adding,
+  Editing,
+  Removing,
+}
 
 // Contato (Contacte-nos)
 export interface IContactMessage {
@@ -30,11 +37,11 @@ export class Table<T> {
     protected component: ITable<T>;
   
     protected cols : string[];
-    protected context: IContext<T>;
+    protected context: ICRUD<T>;
     protected container: HTMLElement|null;
     protected isDark: boolean;
   
-    constructor(component : ITable<T>, context: IContext<T>, cols: string[], isDark: boolean) {
+    constructor(component : ITable<T>, context: ICRUD<T>, cols: string[], isDark: boolean) {
       this.cols = cols; 
       this.cols.push(''); // última coluna para os botões
   

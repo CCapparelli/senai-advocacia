@@ -19,6 +19,9 @@ export class OurContactComponent implements IForm<IContactMessage>, AfterViewIni
   }
 
   submit(msg: IContactMessage): void {
-    alert(`Not implemented yet, ${msg.senderName}.`);
+    alert(`Olá, ${msg.senderName}.
+      Obrigado pelo contato.
+      
+      Retornaremos em breve.`);
   }
 }

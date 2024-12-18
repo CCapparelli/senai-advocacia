@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import { IUserData, emptyUserData } from "../model/user/om";
+import { IUserAuth, IUserData, emptyUserData } from "../model/user/om";
 import { UsersContext } from '../model/user/context';
-import { AuthSumulator } from "./data/moc/auth.simulator";
+import { Authenticator } from "./auth/authenticator";
+import { clientItems } from "./auth/authorizator";
 
 
 @Injectable({providedIn: "root"})
@@ -9,7 +10,7 @@ export class DataServices {
     public currentUser : IUserData | null = null;
 
   constructor(private context : UsersContext,
-              private authenticator : AuthSumulator
+              private authenticator : Authenticator
   ) {}
 
   hasData = () : boolean => (!this.context.isEmpty());
@@ -25,27 +26,31 @@ export class DataServices {
   }
 
   authenticate(userEmail: string, password: string) : IUserData|null {
-    const token = this.authenticator.call(userEmail, password);
-    // se não retornou erro é porque validou o usuário.
-    
-    return this.context.findUser(userEmail);
-  }
+    const response = this.authenticator.authenticate(userEmail, password);
 
-  
+    if (response)
+      return this.context.findUser(userEmail);
+
+    return null;
+  }
 
   setAsCurrent(userData: IUserData) {
     const user = this.context.findUser(userData.email);
     if (!user) {
-      this.context.saveOrUptade(userData)
+      throw new Error(`User not set as current. [${userData.email}]`);
     }
     this.currentUser = user;
   }
 
-  register(userName: string, password: string) {
-    var newData = emptyUserData;
-    newData.name = userName; 
-    newData.roles = ['client'];
-    newData.paths = ['reports'];
-    this.context.saveOrUptade(newData);
+  save(userData: IUserData) {
+    userData.roles = ['client'];
+    userData.paths = clientItems;
+    this.context.save(userData);
+  }
+  
+  register(userData: IUserData, userAuth: IUserAuth) {
+    userData.roles = ['client'];
+    userData.paths = clientItems;
+    this.context.register(userData, userAuth);
   }
 }

@@ -8,6 +8,7 @@ import { UserModal } from '../../../../../model/user/userModal';
 import { UsersTable } from '../../../../../model/user/usersTable';
 import { UsersContext } from '../../../../../model/user/context';
 import { DataServices } from '../../../../../services/dataService';
+import { CrudMode } from '../../../../../model/ui';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
   current: IUserData;
   modalContainer: HTMLElement|null = null;
   currentName : string|undefined = 'Admin'
+  crudMode : CrudMode = CrudMode.NotSet;
 
   public modalBuilder : UserModal;
   public tableBuilder : UsersTable;
@@ -47,6 +49,7 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
   add() {
     this.current = emptyUserData;
     this.modalBuilder.init('Incluindo...');
+    this.crudMode = CrudMode.Adding;
     this.modalBuilder.show(this.current);
   }
 
@@ -54,6 +57,7 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
   edit(user: IUserData) {
     this.current = user;
     this.modalBuilder.init('Editando...');
+    this.crudMode = CrudMode.Editing;
     this.modalBuilder.show(user);
   } 
   remove(item: IUserData) {
@@ -67,7 +71,13 @@ export class RecordsComponent implements ITable<IUserData>, IModal<IUserData>, A
   // IModal
   saveOrUptade(item: IUserData): void {
     if (item.email.length > 0) {
-      this.usersContext.saveOrUptade(item);
+      if (this.crudMode === CrudMode.Adding)
+        this.usersContext.save(item);
+      else if (this.crudMode === CrudMode.Editing)
+        this.usersContext.uptade(item);
+      else 
+        throw new Error(`Opção não implementada. ${this.crudMode}`);
+      
       this.tableBuilder.fill();
       this.modalBuilder.hide();
     }
