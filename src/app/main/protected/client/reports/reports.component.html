@@ -2,9 +2,10 @@
   <aside id="sideBar"  class="sidebar">
     <div class="side-top">
       <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do cliente"></i>
-      <p class="title m-0 p-0">Cliente</p>
+      <p class="title w-100">{{currentName}}</p>
     </div>
     <ul class="menu-list">
+      <li class="menu-item" routerLink="/client">Home</li>
       <li class="menu-item active">Relatórios</li>
       <li class="menu-item">Calendário</li>
       <li class="menu-item">Pendências</li>

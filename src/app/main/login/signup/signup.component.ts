@@ -1,43 +1,55 @@
-import { Router, }               from "@angular/router";
-import { Component }             from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { ViewUpdater }           from '../../../../model/model';
-import { DataServices }          from '../../../../services/session.services';
+import { AfterViewInit, Component } from '@angular/core';
+import { SignupForm } from './signup.form';
+import { Router }               from "@angular/router";
+import { IForm } from '../../../../model/ui.contracts';
+import { ISignup, emptySignup } from '../../../../model/ui';
+import { DataServices } from '../../../../services/dataService';
+import { ViewUpdater } from '../../../../services/uiServices';
+import { emptyUserAuth, emptyUserData } from '../../../../model/user/om';
+
 
 @Component({
   selector: 'app-signup',
-  imports: [ReactiveFormsModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
-export class SignupComponent {
-  constructor(
-    private dataServices: DataServices,
-    private router: Router,
-    private view: ViewUpdater
-  ) {}
-  formGroup: FormGroup = new FormGroup({
-    userName:     new FormControl<string>("", {nonNullable: true,
-      validators: [Validators.required, Validators.min(2)],
-    }),
-    userPassword: new FormControl<string>("", {nonNullable: true,
-      validators: [Validators.required, Validators.min(6)],
-    }),
-});
+export class SignupComponent implements IForm<ISignup>, AfterViewInit {
+  form  : SignupForm|null = null;
+  formContainer: HTMLElement|null = null;
 
-register() {
-  if (this.formGroup.invalid) {
-    alert('Dados inválidos.');
-    return;
-  }
-  const { userName, userPassword } = this.formGroup.value;
-  var user = this.dataServices.findUser(userName, userPassword);
+    constructor(
+      private dataServices: DataServices,
+      private router: Router,
+      private view: ViewUpdater
+    ) {}
+    
+    ngAfterViewInit(): void {
+      this.formContainer = document.getElementById('divLoginForm');
+      this.form = new SignupForm(this);
+      this.form.load(emptySignup);
+    }
+  
+    submit(msg: ISignup): void {
+      this.register(msg);
+    }
+
+register(msg: ISignup) {
+  var user = this.dataServices.authenticate(msg.email, msg.password);
   if (user) {
-    alert('Usuário já cadastrado');
+    alert('Usuário/email já cadastrado');
   } else {
-    this.dataServices.register(userName, userPassword);
+    let x = emptyUserData;
+    x.email = msg.email;
+    x.name = msg.name;
+
+    let y = emptyUserAuth;
+    y.email = msg.email;
+    y.pass = msg.password;
+
+    this.dataServices.register(x, y);
     this.router.navigate(['/login']);
-    alert(`Parabéns, ${userName}.\nVocê está cadastrado\nFaça seu login!`);  }
+    alert(`Parabéns, ${msg.name}.\nVocê está cadastrado\nFaça seu login!`);  
+  }
 }
 
 }

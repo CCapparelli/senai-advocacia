@@ -1,0 +1,39 @@
+<div class="inner-view">
+    <aside id="sideBar"  class="sidebar">
+      <div class="side-top">
+        <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do administrador"></i>
+        <p class="title w-100">{{currentName}}</p>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item" routerLink="/dashboard">Dashboard</li>
+        <li class="menu-item active">Registros</li>
+        <li class="menu-item" routerLink="/firebase">Firebase</li>
+        <li class="menu-item" routerLink="/next">Próximos passos</li>
+      </ul>
+    </aside>
+    <div class="main-content">
+      <div class="f-sp-b">
+        <p class="title w-100">Registros</p>
+        <div class="form-floating form-floating-dark" data-bs-theme="dark">
+          <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <option value="users" selected>Usuários</option>
+            <option value="faqs">FAQs</option>
+            <option value="etc">...</option>
+          </select>
+          <label for="floatingSelect">Cadastro</label>
+        </div>
+      </div>
+      <div id="table-container" class="container">
+        
+      </div>
+      <div class="f-jc-e">
+        <button class="btn btn-success btn-dark" (click)="add()"  data-bs-theme="dark"><i class="fa-solid fa-add" title="Adicionar"></i></button>
+      </div>
+    </div>
+</div>
+<div id="modal-container" class="modal" data-bs-theme="dark">
+        
+</div>
+
+
+

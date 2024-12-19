@@ -9,14 +9,16 @@
       <a href="#divServices">Serviços</a>
       <a href="#divContact">Contato</a>
     </div>
-    <div class="protectedLinks">
-      <a id="link-dash" class="nav-link hidden" routerLink="/dashboard">Dashboard</a>
-      <a id="link-reports" class="nav-link hidden" routerLink="/reports">Relatórios</a>
-      <a id="link-meetings" class="nav-link hidden" routerLink="/meetings">Reuniões</a>
+    <div id="divAreas" class="areas hidden">
+      <p class="small">Áreas de acesso</p>
+      <div class="protectedLinks">
+        <a id="link-dash" class="nav-link hidden" routerLink="/dashboard">Admin</a>
+        <a id="link-reports" class="nav-link hidden" routerLink="/reports">Clientes</a>
+        <a id="link-meetings" class="nav-link hidden" routerLink="/meetings">Advogados</a>
+      </div>
     </div>
     <div class="right">
     <img id="country" class="country" src="/assets/img/flags/brazil.png" alt="flag">
-    <span id="txt-userName" class="hidden">User name</span>
-      <a id="btn-login" class="nav-link small" routerLink="/login">Login</a>
+    <a id="btn-login" class="nav-link small" routerLink="/login">Login</a>
     </div>
 </header>

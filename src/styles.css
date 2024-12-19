@@ -67,7 +67,7 @@
     --gray-B2: #4C4C4C; /**/
     --gray-B3: #404040; /**/
     --gray-B4: #262626; /**/
-    --gray-B5: #0D0D0D; /**/
+    --gray-B5: #0D0D0D; /*343a40 */
     /* --gray-Q1: #526631; 
     --gray-Q2: #1C4D3F; 
     --gray-S1: #20B2DA; 
@@ -98,7 +98,31 @@ a {
 }
 
 /* default (outer) */
-
+.section {
+  margin: 0 50px;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+}
+.section-borders {
+  width: 50%;
+  padding: 20px;
+  border-radius: 20px;
+  background-color:  rgba(38, 38, 38, 0.850);
+}
+.self-center {
+  align-self: center;
+}
+.self-end {
+  align-self: end;
+}
+.section h2, .section p {
+  color: var(--gray-W3);
+  opacity: 1;
+}
+.section h2 {
+  padding-top: 45px;
+}
 .default-view {
     width: 100%;
     padding-top: 45px;
@@ -135,7 +159,7 @@ a {
   }
   
   .sidebar {
-    width: 45px; /* Largura fixa da barra lateral */
+    width: 45px; 
     background: #4c4f56;
     color: white;
     padding: 5px 20px;
@@ -151,6 +175,7 @@ a {
   } 
 
   .title {
+    text-align: center;
     font-size: 24px;
   }
   .menu-bars {
@@ -159,12 +184,10 @@ a {
     cursor: pointer;
   } 
   .menu-x {
-    font-size: 8px;
-    height: 18px;
-    padding: 5px;
     cursor: pointer;
-    border-radius: 5px;
-    border: solid 1px var(--gray-0);
+  } 
+  .menu-x:hover {
+    color: white;
   } 
   .menu-list {
     width: 100%;
@@ -223,16 +246,67 @@ p {
 label {
   text-align: start;
 }
-.section {
-  margin: 0 auto;
-  padding: 30px;
-  padding-top: 70px;
-  text-align: center;
-  position: relative;
-}
+
 .topSpacer {
   height: 80px;
   position: sticky;
   z-index: 1;
   display: hidden;
+}
+
+/* IModal, ITable, ... */
+.modal-header {
+  border-bottom: none;
+}
+.modal-footer {
+  border-top: none;
+}
+.modal-title-dark {
+  color:white;
+}
+
+.f-sp-b {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px
+}
+.f-jc-e {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.form-control, .form-control:focus {
+  border: none;
+  box-shadow: none;
+}
+.form-control:visited {
+  background-color: transparent;  
+}
+
+.fa-pen-to-square {
+  color: var(--gray-B2);
+}
+.fa-trash {
+  color: var(--gray-B2);
+}.fa-pen-to-square:hover {
+  color: var(--gray-W5);
+}
+.fa-trash:hover {
+  color: tomato;
+}
+.buttons {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.app-form {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

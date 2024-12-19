@@ -1,0 +1,83 @@
+  .main-content {
+    background: var(--gray-B4);
+    color: var(--gray-W3);
+    display: flex!important;
+    flex-direction: column;
+    gap:10px;
+  }
+  .main-content p:not(.title) {
+    font-size: 10pt;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+  .sidebar {
+    background: var(--gray-B3);
+    color: var(--gray-W3);
+  }
+  
+  .sidebar ul li {
+    background: var(--gray-B1);
+  }
+  
+  .sidebar ul li:hover {
+    background: var(--gray-0);
+  }
+  
+  .title {
+    border-bottom: 1px solid var(--gray-W3);
+    width: 100%;
+  }
+  .main-content {
+    background: var(--gray-B4);
+    color: var(--gray-W3);
+  }
+    
+  .menu-item {
+    background: var(--gray-B3);
+    color: var(--gray-W3);
+    text-align: start;
+  }
+  .menu-item:hover {
+    background-color: var(--gray-B4);
+    text-align: end;
+  }
+  .active {
+    background: var(--gray-B3);
+    color: var(--gray-W5);
+    font-weight: bold;
+    text-align: end;
+  }
+
+
+  /**/
+#floatingSelect {
+  width: 150px;
+}
+.buttons {
+    display: flex;
+    justify-content: end;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.card-footer, .modal-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-control, .form-control:active {
+    border: 0;
+    box-shadow: none;
+}
+
+.no-border {
+    border: 0;
+    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}

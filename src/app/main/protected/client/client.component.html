@@ -1,6 +1,53 @@
-<div id="divClient" class="default-view">
-    <div class="view-intro mb-3">
-        <h1 class="mt-3">Área do cliente</h1>
-        <p class="mx-5">Lorem ipsum dolor...</p>
+<div class="inner-view">
+    <aside id="sideBar"  class="sidebar">
+      <div class="side-top">
+        <i id="btnToogle" class="menu-bars fa-solid fa-bars" (click)="toogleMenu();" title="Opções do cliente"></i>
+        <p class="title w-100">{{currentName}}</p>
+      </div>
+      <ul class="menu-list">
+        <li class="menu-item active">Home</li>
+        <li class="menu-item" routerLink="/reports">Relatórios</li>
+        <li class="menu-item">Calendário</li>
+        <li class="menu-item">Pendências</li>
+      </ul>
+    </aside>
+    <div class="main-content">
+      <p class="title m-0 p-0">Meus advogados</p>
+
+      <div class="team-members">
+        <div class="team-member">
+          <div class="picture">
+            <img class="img-fluid" src="/assets/img/logo/logo.webp">
+          </div>
+          <div class="team-content">
+            <h3 class="name">Bob</h3>
+            <h4 class="title">Trabalhista</h4>
+          </div>
+          <ul class="social">
+            <li><a href="#" aria-hidden="true"><i class="fa-brands fa-square-facebook"></i></a></li>
+            <li><a href="#" aria-hidden="true"><i class="fa-brands fa-square-twitter"></i></a></li>
+            <li><a href="#" aria-hidden="true"><i class="fa-brands fa-square-google-plus"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/capparelli/" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+        <div class="team-member">
+          <div class="picture">
+            <img class="img-fluid" src="/assets/img/logo/logo.webp">
+          </div>
+          <div class="team-content">
+            <h3 class="name">Brito</h3>
+            <h4 class="title">Cível</h4>
+          </div>
+          <ul class="social">
+            <li><a href="#" aria-hidden="true"><i class="fa-brands fa-square-facebook"></i></a></li>
+            <li><a href="#" aria-hidden="true"><i class="fa-brands fa-square-twitter"></i></a></li>
+            <li><a href="#" aria-hidden="true"><i class="fa-brands fa-square-google-plus"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/capparelli/" aria-hidden="true"><i class="fa-brands fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+
     </div>
-</div>
+  </div>
+  

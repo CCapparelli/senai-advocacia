@@ -8,14 +8,6 @@
   color: var(--goldenrod-W5);
 }
 
-
-.section-borders {
-  width: 50%;
-  padding: 20px;
-  border-radius: 20px;
-  background-color: rgba(38, 38, 38, 0.850);
-}
-
 .intro {
     text-align: left;
     padding-bottom:20px;
@@ -54,10 +46,11 @@
     margin: 0px; 
     display: none;
     overflow: hidden;
-    color: var(--goldenrod-B5);
-    background-color: var(--goldenrod-0); 
     border-radius: 10px;
     transition: display 2s;
+}
+.faq-answer p {
+    text-align: start;
 }
 .active, .faq-question:hover {
     background-color: var(--goldenrod-B1);
